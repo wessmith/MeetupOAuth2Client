@@ -1,0 +1,319 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DE3019A8160B77FE0099C255 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3019A7160B77FE0099C255 /* UIKit.framework */; };
+		DE3019AA160B77FE0099C255 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3019A9160B77FE0099C255 /* Foundation.framework */; };
+		DE3019AC160B77FE0099C255 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3019AB160B77FE0099C255 /* CoreGraphics.framework */; };
+		DE3019B2160B77FE0099C255 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE3019B0160B77FE0099C255 /* InfoPlist.strings */; };
+		DE3019B4160B77FE0099C255 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3019B3160B77FE0099C255 /* main.m */; };
+		DE3019B8160B77FE0099C255 /* MUAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3019B7160B77FE0099C255 /* MUAppDelegate.m */; };
+		DE3019BB160B77FE0099C255 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE3019B9160B77FE0099C255 /* MainStoryboard.storyboard */; };
+		DE3019BE160B77FE0099C255 /* MUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3019BD160B77FE0099C255 /* MUViewController.m */; };
+		DE3019CD160B78250099C255 /* MUOAuth2Client.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3019C6160B78250099C255 /* MUOAuth2Client.m */; };
+		DE3019CE160B78250099C255 /* MUOAuth2LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3019C8160B78250099C255 /* MUOAuth2LoginView.m */; };
+		DE3019CF160B78250099C255 /* MUOAuth2Credential.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3019CA160B78250099C255 /* MUOAuth2Credential.m */; };
+		DE3019D0160B78250099C255 /* NSString+Query.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3019CC160B78250099C255 /* NSString+Query.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DE3019A3160B77FE0099C255 /* MeetupOAuth2Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetupOAuth2Client.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE3019A7160B77FE0099C255 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DE3019A9160B77FE0099C255 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DE3019AB160B77FE0099C255 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DE3019AF160B77FE0099C255 /* MeetupOAuth2Client-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MeetupOAuth2Client-Info.plist"; sourceTree = "<group>"; };
+		DE3019B1160B77FE0099C255 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DE3019B3160B77FE0099C255 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DE3019B5160B77FE0099C255 /* MeetupOAuth2Client-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MeetupOAuth2Client-Prefix.pch"; sourceTree = "<group>"; };
+		DE3019B6160B77FE0099C255 /* MUAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUAppDelegate.h; sourceTree = "<group>"; };
+		DE3019B7160B77FE0099C255 /* MUAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUAppDelegate.m; sourceTree = "<group>"; };
+		DE3019BA160B77FE0099C255 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		DE3019BC160B77FE0099C255 /* MUViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUViewController.h; sourceTree = "<group>"; };
+		DE3019BD160B77FE0099C255 /* MUViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUViewController.m; sourceTree = "<group>"; };
+		DE3019C5160B78250099C255 /* MUOAuth2Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUOAuth2Client.h; sourceTree = "<group>"; };
+		DE3019C6160B78250099C255 /* MUOAuth2Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUOAuth2Client.m; sourceTree = "<group>"; };
+		DE3019C7160B78250099C255 /* MUOAuth2LoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUOAuth2LoginView.h; sourceTree = "<group>"; };
+		DE3019C8160B78250099C255 /* MUOAuth2LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUOAuth2LoginView.m; sourceTree = "<group>"; };
+		DE3019C9160B78250099C255 /* MUOAuth2Credential.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUOAuth2Credential.h; sourceTree = "<group>"; };
+		DE3019CA160B78250099C255 /* MUOAuth2Credential.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUOAuth2Credential.m; sourceTree = "<group>"; };
+		DE3019CB160B78250099C255 /* NSString+Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Query.h"; sourceTree = "<group>"; };
+		DE3019CC160B78250099C255 /* NSString+Query.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Query.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DE3019A0160B77FE0099C255 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE3019A8160B77FE0099C255 /* UIKit.framework in Frameworks */,
+				DE3019AA160B77FE0099C255 /* Foundation.framework in Frameworks */,
+				DE3019AC160B77FE0099C255 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DE301998160B77FE0099C255 = {
+			isa = PBXGroup;
+			children = (
+				DE3019C4160B78110099C255 /* Classes */,
+				DE3019AD160B77FE0099C255 /* MeetupOAuth2Client */,
+				DE3019A6160B77FE0099C255 /* Frameworks */,
+				DE3019A4160B77FE0099C255 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DE3019A4160B77FE0099C255 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DE3019A3160B77FE0099C255 /* MeetupOAuth2Client.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DE3019A6160B77FE0099C255 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DE3019A7160B77FE0099C255 /* UIKit.framework */,
+				DE3019A9160B77FE0099C255 /* Foundation.framework */,
+				DE3019AB160B77FE0099C255 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DE3019AD160B77FE0099C255 /* MeetupOAuth2Client */ = {
+			isa = PBXGroup;
+			children = (
+				DE3019B6160B77FE0099C255 /* MUAppDelegate.h */,
+				DE3019B7160B77FE0099C255 /* MUAppDelegate.m */,
+				DE3019B9160B77FE0099C255 /* MainStoryboard.storyboard */,
+				DE3019BC160B77FE0099C255 /* MUViewController.h */,
+				DE3019BD160B77FE0099C255 /* MUViewController.m */,
+				DE3019AE160B77FE0099C255 /* Supporting Files */,
+			);
+			path = MeetupOAuth2Client;
+			sourceTree = "<group>";
+		};
+		DE3019AE160B77FE0099C255 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DE3019AF160B77FE0099C255 /* MeetupOAuth2Client-Info.plist */,
+				DE3019B0160B77FE0099C255 /* InfoPlist.strings */,
+				DE3019B3160B77FE0099C255 /* main.m */,
+				DE3019B5160B77FE0099C255 /* MeetupOAuth2Client-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DE3019C4160B78110099C255 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				DE3019C5160B78250099C255 /* MUOAuth2Client.h */,
+				DE3019C6160B78250099C255 /* MUOAuth2Client.m */,
+				DE3019C7160B78250099C255 /* MUOAuth2LoginView.h */,
+				DE3019C8160B78250099C255 /* MUOAuth2LoginView.m */,
+				DE3019C9160B78250099C255 /* MUOAuth2Credential.h */,
+				DE3019CA160B78250099C255 /* MUOAuth2Credential.m */,
+				DE3019CB160B78250099C255 /* NSString+Query.h */,
+				DE3019CC160B78250099C255 /* NSString+Query.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DE3019A2160B77FE0099C255 /* MeetupOAuth2Client */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DE3019C1160B77FE0099C255 /* Build configuration list for PBXNativeTarget "MeetupOAuth2Client" */;
+			buildPhases = (
+				DE30199F160B77FE0099C255 /* Sources */,
+				DE3019A0160B77FE0099C255 /* Frameworks */,
+				DE3019A1160B77FE0099C255 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MeetupOAuth2Client;
+			productName = MeetupOAuth2Client;
+			productReference = DE3019A3160B77FE0099C255 /* MeetupOAuth2Client.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DE30199A160B77FE0099C255 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = MU;
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = W5mith;
+			};
+			buildConfigurationList = DE30199D160B77FE0099C255 /* Build configuration list for PBXProject "MeetupOAuth2Client" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DE301998160B77FE0099C255;
+			productRefGroup = DE3019A4160B77FE0099C255 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DE3019A2160B77FE0099C255 /* MeetupOAuth2Client */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DE3019A1160B77FE0099C255 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE3019B2160B77FE0099C255 /* InfoPlist.strings in Resources */,
+				DE3019BB160B77FE0099C255 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DE30199F160B77FE0099C255 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE3019B4160B77FE0099C255 /* main.m in Sources */,
+				DE3019B8160B77FE0099C255 /* MUAppDelegate.m in Sources */,
+				DE3019BE160B77FE0099C255 /* MUViewController.m in Sources */,
+				DE3019CD160B78250099C255 /* MUOAuth2Client.m in Sources */,
+				DE3019CE160B78250099C255 /* MUOAuth2LoginView.m in Sources */,
+				DE3019CF160B78250099C255 /* MUOAuth2Credential.m in Sources */,
+				DE3019D0160B78250099C255 /* NSString+Query.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DE3019B0160B77FE0099C255 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DE3019B1160B77FE0099C255 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		DE3019B9160B77FE0099C255 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DE3019BA160B77FE0099C255 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DE3019BF160B77FE0099C255 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		DE3019C0160B77FE0099C255 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DE3019C2160B77FE0099C255 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MeetupOAuth2Client/MeetupOAuth2Client-Prefix.pch";
+				INFOPLIST_FILE = "MeetupOAuth2Client/MeetupOAuth2Client-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		DE3019C3160B77FE0099C255 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MeetupOAuth2Client/MeetupOAuth2Client-Prefix.pch";
+				INFOPLIST_FILE = "MeetupOAuth2Client/MeetupOAuth2Client-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DE30199D160B77FE0099C255 /* Build configuration list for PBXProject "MeetupOAuth2Client" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE3019BF160B77FE0099C255 /* Debug */,
+				DE3019C0160B77FE0099C255 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DE3019C1160B77FE0099C255 /* Build configuration list for PBXNativeTarget "MeetupOAuth2Client" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE3019C2160B77FE0099C255 /* Debug */,
+				DE3019C3160B77FE0099C255 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DE30199A160B77FE0099C255 /* Project object */;
+}
