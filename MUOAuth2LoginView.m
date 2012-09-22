@@ -3,7 +3,7 @@
 //  Gander
 //
 //  Created by Wes on 9/16/12.
-//  Copyright (c) 2012 W5mith. All rights reserved.
+//  Copyright (c) 2012 Wesley Smith. All rights reserved.
 //
 
 #import "MUOAuth2LoginView.h"

@@ -2,8 +2,8 @@
 //  MUOAuth2Credential
 //  Gander
 //
-//  Created by smith-work on 9/17/12.
-//  Copyright (c) 2012 W5mith. All rights reserved.
+//  Created by Wesley Smith on 9/17/12.
+//  Copyright (c) 2012 Wesley Smith. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

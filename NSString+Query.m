@@ -3,7 +3,7 @@
 //  Gander
 //
 //  Created by Wes on 9/17/12.
-//  Copyright (c) 2012 W5mith. All rights reserved.
+//  Copyright (c) 2012 Wesley Smith. All rights reserved.
 //
 
 #import "NSString+Query.h"
