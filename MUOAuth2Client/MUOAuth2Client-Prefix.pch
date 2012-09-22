@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'MUOAuth2Client' target in the 'MUOAuth2Client' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif
