@@ -125,12 +125,31 @@ NSString *CredentialSavePath() {
                 NSString *city = [results valueForKey:@"city"];
                 NSString *state = [results valueForKey:@"state"];
                 self.locationLabel.text = [NSString stringWithFormat:@"%@, %@", city, state];
+                
+                NSURL *photoURL = [NSURL URLWithString:[results valueForKeyPath:@"photo.thumb_link"]];
+                [self fetchProfilePhotoAtURL:photoURL];
+                
             });
             
         } else {
             
             NSLog(@"Connection error -> %@", error);
         }
+    });
+}
+
+- (void)fetchProfilePhotoAtURL:(NSURL *)photoURL
+{
+    NSLog(@"Fetching profile photo at URL: %@", photoURL.absoluteString);
+    
+    if (!photoURL) return;
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        NSData *imageData = [NSData dataWithContentsOfURL:photoURL];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // use the photo.
+        });
     });
 }
 
