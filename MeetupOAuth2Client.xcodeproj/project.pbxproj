@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE1A8A29160E64C40046B8FD /* MUOAuth2Client.h in Headers */ = {isa = PBXBuildFile; fileRef = DE3019C5160B78250099C255 /* MUOAuth2Client.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DE1A8A2A160E64C90046B8FD /* MUOAuth2Credential.h in Headers */ = {isa = PBXBuildFile; fileRef = DE3019C9160B78250099C255 /* MUOAuth2Credential.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DE3019A8160B77FE0099C255 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3019A7160B77FE0099C255 /* UIKit.framework */; };
 		DE3019AA160B77FE0099C255 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3019A9160B77FE0099C255 /* Foundation.framework */; };
 		DE3019AC160B77FE0099C255 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3019AB160B77FE0099C255 /* CoreGraphics.framework */; };
@@ -80,7 +82,6 @@
 		DE3019CB160B78250099C255 /* NSString+Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Query.h"; sourceTree = "<group>"; };
 		DE3019CC160B78250099C255 /* NSString+Query.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Query.m"; sourceTree = "<group>"; };
 		DE3019E8160BD5AE0099C255 /* libMUOAuth2Client.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMUOAuth2Client.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		DE3019EC160BD5AE0099C255 /* MUOAuth2Client-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MUOAuth2Client-Prefix.pch"; sourceTree = "<group>"; };
 		DE3019F6160BD5AF0099C255 /* MUOAuth2ClientTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MUOAuth2ClientTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE3019F7160BD5AF0099C255 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		DE301A00160BD5AF0099C255 /* MUOAuth2ClientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MUOAuth2ClientTests-Info.plist"; sourceTree = "<group>"; };
@@ -212,7 +213,6 @@
 		DE3019EB160BD5AE0099C255 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				DE3019EC160BD5AE0099C255 /* MUOAuth2Client-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -247,6 +247,18 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		DE1A8A28160E64B90046B8FD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE1A8A29160E64C40046B8FD /* MUOAuth2Client.h in Headers */,
+				DE1A8A2A160E64C90046B8FD /* MUOAuth2Credential.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		DE3019A2160B77FE0099C255 /* MeetupOAuth2Client */ = {
 			isa = PBXNativeTarget;
@@ -272,6 +284,8 @@
 				DE3019E4160BD5AE0099C255 /* Sources */,
 				DE3019E5160BD5AE0099C255 /* Frameworks */,
 				DE3019E6160BD5AE0099C255 /* CopyFiles */,
+				DE1A8A28160E64B90046B8FD /* Headers */,
+				DE1A8A26160E648B0046B8FD /* Show TODOs */,
 			);
 			buildRules = (
 			);
@@ -353,6 +367,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		DE1A8A26160E648B0046B8FD /* Show TODOs */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Show TODOs";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "KEYWORDS=\"TODO:|FIXME:|\\?\\?\\?:|\\!\\!\\!:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | perl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"";
+		};
 		DE3019F4160BD5AF0099C255 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
