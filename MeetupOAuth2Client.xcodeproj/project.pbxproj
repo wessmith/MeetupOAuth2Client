@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -308,11 +308,11 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = MU;
-				LastUpgradeCheck = 0440;
+				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Wesley Smith";
 			};
 			buildConfigurationList = DE30199D160B77FE0099C255 /* Build configuration list for PBXProject "MeetupOAuth2Client" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
