@@ -2,14 +2,17 @@
 //  MUProfileViewController.m
 //  MeetupOAuth2Client
 //
-//  Created by Wes on 9/20/12.
-//  Copyright (c) 2012 W5mith. All rights reserved.
+//  Created by Wesley Smith on 9/20/12.
+//  Copyright (c) 2012 Wesley Smith. All rights reserved.
 //
 
 #import "MUProfileViewController.h"
 
 @interface MUProfileViewController ()
-
+@property (weak, nonatomic) IBOutlet UIImageView *profilePhotoView;
+@property (weak, nonatomic) IBOutlet UILabel *memberNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *memberLocationLabel;
+@property (weak, nonatomic) IBOutlet UITextView *memberBioTextView;
 @end
 
 @implementation MUProfileViewController
@@ -26,13 +29,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
