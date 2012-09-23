@@ -256,7 +256,8 @@ const NSTimeInterval kBounceAnimationDuration = 0.15;
 ////////////////////////////////////////////////////////////////////////////////
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
-    //NSLog(@"Authorization webview failed: \n%@", error);
+    if ([self.delegate respondsToSelector:@selector(loginView:didFailLoadWithError:inWebView:)])
+        [self.delegate loginView:self didFailLoadWithError:error inWebView:webView];
 }
 
 @end

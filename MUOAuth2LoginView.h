@@ -24,7 +24,9 @@
 
 @protocol MUOAuth2LoginViewDelegate <NSObject>
 
-- (BOOL)loginView:(MUOAuth2LoginView *)loginView shouldStartLoadWithRequest:(NSURLRequest *)request;
+- (void)loginView:(MUOAuth2LoginView *)sender didFailLoadWithError:(NSError *)error inWebView:(UIWebView *)webView;
+
+- (BOOL)loginView:(MUOAuth2LoginView *)sender shouldStartLoadWithRequest:(NSURLRequest *)request;
 
 @end
 
