@@ -24,4 +24,8 @@
                                  success:(void(^)(MUOAuth2Credential *credential))success
                                  failure:(void(^)(NSError *error))failure;
 
+- (void)archiveCredential:(MUOAuth2Credential *)credential withName:(NSString *)fileName;
+
+- (MUOAuth2Credential *)credentialFromArchive:(NSString *)fileName;
+
 @end

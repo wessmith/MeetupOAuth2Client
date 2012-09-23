@@ -17,6 +17,11 @@ static NSString *const kMeetupAccessEndpoint = @"https://secure.meetup.com/oauth
 typedef void(^SuccessBlock)(MUOAuth2Credential *credential);
 typedef void(^FailureBlock)(NSError *error);
 
+NSString *CredentialSavePath(NSString *fileName) {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    return [[paths objectAtIndex:0] stringByAppendingPathComponent:fileName];
+}
+
 @interface MUOAuth2Client() <MUOAuth2LoginViewDelegate>
 @property (nonatomic, strong) MUOAuth2Credential *credential;
 @property (nonatomic, strong) MUOAuth2LoginView *loginView;
@@ -37,6 +42,8 @@ typedef void(^FailureBlock)(NSError *error);
     
     return _sharedClient;
 }
+
+#pragma mark - Public Methods -
 
 - (void)authorizeClientWithID:(NSString *)clientID
                        secret:(NSString *)secret
@@ -83,8 +90,17 @@ typedef void(^FailureBlock)(NSError *error);
     [self performRequestWithParameters:params];
 }
 
+- (void)archiveCredential:(MUOAuth2Credential *)credential withName:(NSString *)fileName
+{
+    [NSKeyedArchiver archiveRootObject:credential toFile:CredentialSavePath(fileName)];
+}
 
-#pragma mark - Private Methods
+- (MUOAuth2Credential *)credentialFromArchive:(NSString *)fileName
+{
+    return [NSKeyedUnarchiver unarchiveObjectWithFile:CredentialSavePath(fileName)];
+}
+
+#pragma mark - Private Methods -
 
 - (void)performRequestWithParameters:(NSDictionary *)params
 {
