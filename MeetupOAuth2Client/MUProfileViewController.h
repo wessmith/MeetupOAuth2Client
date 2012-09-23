@@ -7,7 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MUOAuth2Client.h"
+
+@protocol MUProfileViewControllerDelegate;
+
 
 @interface MUProfileViewController : UIViewController
+
+@property (nonatomic, weak) id <MUProfileViewControllerDelegate> delegate;
+@property (nonatomic, strong) MUOAuth2Credential *credential;
+
+@end
+
+
+@protocol MUProfileViewControllerDelegate <NSObject>
+
+- (void)profileViewControllerDidRequestLogout:(MUProfileViewController *)sender;
 
 @end

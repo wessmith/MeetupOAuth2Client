@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12B19" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="12C54" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="gqa-Ur-kYn">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="5">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
                 <viewController id="2" customClass="MUViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LTH-Hq-t3r">
-                                <rect key="frame" x="102" y="300" width="116" height="37"/>
+                                <rect key="frame" x="88" y="186" width="144" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Authenticate">
+                                <state key="normal" title="Log in to Meetup">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -29,85 +28,77 @@
                                     <action selector="authenticateAction:" destination="2" eventType="touchUpInside" id="SAg-5b-hub"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dmz-pI-dAo">
-                                <rect key="frame" x="101" y="352" width="119" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Expire Test">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="expireTestAction:" destination="2" eventType="touchUpInside" id="dd1-kv-rbV"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="CXl-QR-plQ">
-                                <rect key="frame" x="96" y="403" width="129" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Refresh Token">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="refreshAction:" destination="2" eventType="touchUpInside" id="q78-F2-OvC"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="sfy-gf-j5j"/>
                     <connections>
                         <outlet property="locationLabel" destination="bWN-wr-9ig" id="lYM-Ob-J0V"/>
                         <outlet property="nameLabel" destination="6y6-KO-11M" id="7vl-jg-Fr4"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-58" y="-95"/>
+            <point key="canvasLocation" x="412" y="-382"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="w4W-07-9Nt">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oyV-59-a63" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="MUProfile" id="X9b-Qe-VKA" customClass="MUProfileViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MUProfileView" id="X9b-Qe-VKA" customClass="MUProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pcS-3D-VEH">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="mIB-Bm-0rI">
-                                <rect key="frame" x="20" y="20" width="280" height="210"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="MUProfilePlaceholderMale.png" id="mIB-Bm-0rI">
+                                <rect key="frame" x="20" y="55" width="280" height="166"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Member Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="6y6-KO-11M">
-                                <rect key="frame" x="20" y="238" width="280" height="28"/>
+                                <rect key="frame" x="20" y="229" width="280" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Member, Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="bWN-wr-9ig">
-                                <rect key="frame" x="20" y="265" width="280" height="18"/>
+                                <rect key="frame" x="20" y="256" width="280" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" editable="NO" id="NxL-dM-sUq">
-                                <rect key="frame" x="20" y="291" width="280" height="149"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="20" y="282" width="280" height="178"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <navigationBar contentMode="scaleToFill" id="gpw-Tk-nOl">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Profile" id="BMu-OT-txz">
+                                        <barButtonItem key="rightBarButtonItem" title="Log out" id="pbd-J0-6fv">
+                                            <connections>
+                                                <action selector="logOutAction:" destination="X9b-Qe-VKA" id="uwc-Gx-7Hk"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="TWl-GT-zxv">
+                        <barButtonItem key="rightBarButtonItem" title="Log out" id="NEw-Al-2LL">
+                            <connections>
+                                <action selector="logOutAction:" destination="X9b-Qe-VKA" id="2lQ-Kl-01r"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="memberBioTextView" destination="NxL-dM-sUq" id="tQY-uS-L8T"/>
                         <outlet property="memberLocationLabel" destination="bWN-wr-9ig" id="uuK-Zy-PTd"/>
@@ -115,14 +106,38 @@
                         <outlet property="profilePhotoView" destination="mIB-Bm-0rI" id="opC-Vp-Fkq"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oyV-59-a63" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="292" y="-95"/>
+            <point key="canvasLocation" x="514" y="205"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4hb-gi-C4j">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tlb-LU-dCa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="gqa-Ur-kYn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jzx-22-fHq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="X9b-Qe-VKA" kind="modal" identifier="MUProfileSegue" id="hoh-dP-xOj"/>
+                        <segue destination="2" kind="relationship" relationship="rootViewController" id="hgc-ik-Vin"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-106" y="9"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="MUProfilePlaceholderMale.png" width="280" height="210"/>
+    </resources>
     <classes>
         <class className="MUProfileViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MUProfileViewController.h"/>
             <relationships>
+                <relationship kind="action" name="logOutAction:" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="memberBioTextView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="memberLocationLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="memberNameLabel" candidateClass="UILabel"/>
@@ -133,8 +148,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MUViewController.h"/>
             <relationships>
                 <relationship kind="action" name="authenticateAction:"/>
-                <relationship kind="action" name="expireTestAction:"/>
-                <relationship kind="action" name="refreshAction:"/>
                 <relationship kind="outlet" name="locationLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
             </relationships>

@@ -7,6 +7,7 @@
 //
 
 #import "MUProfileViewController.h"
+#import "NSString+Query.h"
 
 @interface MUProfileViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *profilePhotoView;
@@ -17,23 +18,76 @@
 
 @implementation MUProfileViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (void)viewWillAppear:(BOOL)animated
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    [super viewWillAppear:animated];
+    
+    // Clear the dummy text.
+    self.memberNameLabel.text = nil;
+    self.memberLocationLabel.text = nil;
+    self.memberBioTextView.text = nil;
+    
+    [self fetchProfile];
 }
 
-- (void)viewDidLoad
+- (IBAction)logOutAction:(UIBarButtonItem *)sender
 {
-    [super viewDidLoad];
+    if ([self.delegate respondsToSelector:@selector(profileViewControllerDidRequestLogout:)])
+        [self.delegate profileViewControllerDidRequestLogout:self];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+- (void)fetchProfile
 {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    NSDictionary *params = @{ @"member_id" : @"self", @"access_token" : self.credential.accessToken };
+    
+    NSString *query = [NSString stringWithFormat:@"https://api.meetup.com/2/members?%@", [NSString queryStringWithDictionary:params]];
+
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:query]];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        NSURLResponse *response = nil; NSError *error = nil;
+        NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+        if (!error) {
+            
+            NSError *error = nil;
+            id json = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&error];
+            if (error) NSLog(@"JSON Parsing error -> %@", error);
+            
+            NSDictionary *results = [[json valueForKey:@"results"] objectAtIndex:0];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                self.memberNameLabel.text = [results valueForKey:@"name"];
+                NSString *city = [results valueForKey:@"city"];
+                NSString *state = [results valueForKey:@"state"];
+                self.memberLocationLabel.text = [NSString stringWithFormat:@"%@, %@", city, state];
+                self.memberBioTextView.text = [results valueForKey:@"bio"];
+                
+                NSURL *photoURL = [NSURL URLWithString:[results valueForKeyPath:@"photo.photo_link"]];
+                [self fetchProfilePhotoAtURL:photoURL];
+            });
+            
+        } else {
+            
+            NSLog(@"Connection error -> %@", error);
+        }
+    });
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)fetchProfilePhotoAtURL:(NSURL *)photoURL
+{    
+    if (!photoURL) return;
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        NSData *imageData = [NSData dataWithContentsOfURL:photoURL];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.profilePhotoView.image = [UIImage imageWithData:imageData];
+        });
+    });
 }
 
 @end

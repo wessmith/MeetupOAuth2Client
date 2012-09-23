@@ -8,39 +8,60 @@
 
 #import "MUViewController.h"
 #import "MUOAuth2Client.h"
-#import "MUOAuth2Credential.h"
-#import "NSString+Query.h"
+#import "MUProfileViewController.h"
 
 #error You need to enter you own consumer detials here.
 static NSString *const kClientID = @"";
 static NSString *const kClientSecret = @"";
 static NSString *const kRedirectURI = @"";
 
-@interface MUViewController ()
+@interface MUViewController() <MUProfileViewControllerDelegate>
+@property (nonatomic, strong) MUOAuth2Credential *credential;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
-@property (nonatomic, strong) MUOAuth2Credential *credential;
 @end
 
-NSString *CredentialSavePath() {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    return [[paths objectAtIndex:0] stringByAppendingPathComponent:@"OAuthCredential.cache"];
-}
-
 @implementation MUViewController
-
-- (MUOAuth2Credential *)credential
-{
-    if (!_credential) {
-        _credential = [NSKeyedUnarchiver unarchiveObjectWithFile:CredentialSavePath()];
-    }
-    return _credential;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    MUOAuth2Client *client = [MUOAuth2Client sharedClient];
+    
+    // Attempt to unarchive an existing credential.
+    self.credential = [client credentialWithClientID:kClientID];
+    NSLog(@"credential unarchived: %@", self.credential);
+    
+    if (!self.credential) {
+        
+        // Show the login view (in this case do nothing).
+        
+    } else if (self.credential.isExpired) {
+        
+        // Refresh the credential.
+        [client refreshCredential:self.credential success:^(MUOAuth2Credential *credential) {
+            
+            NSLog(@"\nRefreshed Credential: \n%@\n", [credential description]);
+            
+        } failure:^(NSError *error) {
+            
+            NSLog(@"Authorization error -> %@", error);
+        }];
+        
+    } else {
+        
+        // Show the profile view.
+        [self loadProfileView:NO];
+    }
+}
+
+- (void)loadProfileView:(BOOL)animated
+{
+    MUProfileViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"MUProfileView"];
+    controller.delegate = self;
+    controller.credential = self.credential;
+    [self.navigationController presentViewController:controller animated:animated completion:NULL];
 }
 
 - (IBAction)authenticateAction:(id)sender
@@ -49,14 +70,11 @@ NSString *CredentialSavePath() {
     
     [client authorizeClientWithID:kClientID secret:kClientSecret redirectURI:kRedirectURI success:^(MUOAuth2Credential *credential) {
         
-        // Save the credential.
-        [NSKeyedArchiver archiveRootObject:credential toFile:CredentialSavePath()];
-        
         self.credential = credential;
         
-        NSLog(@"Credential saved: %@", [credential description]);
+        NSLog(@"\nNew Credential: \n%@\n", [self.credential description]);
         
-        [self fetchSelf];
+        [self loadProfileView:YES];
         
     } failure:^(NSError *error) {
         
@@ -64,98 +82,19 @@ NSString *CredentialSavePath() {
     }];
 }
 
-- (IBAction)expireTestAction:(id)sender
-{
-    self.credential.expiry = [NSDate date];
-    [NSKeyedArchiver archiveRootObject:self.credential toFile:CredentialSavePath()];
-    
-    NSLog(@"Expiration altered in credential.");
-}
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Profile View Delegate -
 
-- (IBAction)refreshAction:(id)sender
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)profileViewControllerDidRequestLogout:(MUProfileViewController *)sender
 {
+    NSLog(@"Logging out...");
+    
     MUOAuth2Client *client = [MUOAuth2Client sharedClient];
+    [client forgetCredentialWithClientID:kClientID];
     
-    if (self.credential && self.credential.isExpired) {
-        
-        [client refreshAccessTokenWithCredential:self.credential success:^(MUOAuth2Credential *credential) {
-            
-            // Save the credential.
-            [NSKeyedArchiver archiveRootObject:credential toFile:CredentialSavePath()];
-            
-            self.credential = credential;
-            
-            NSLog(@"Credential saved: %@", [credential description]);
-            
-        } failure:^(NSError *error) {
-            
-            NSLog(@"Refresh error -> %@", error);
-        }];
-    }
-}
-
-- (void)fetchSelf
-{
-    NSLog(@"Fetching self...");
-    
-    NSDictionary *params = @{ @"member_id" : @"self", @"access_token" : self.credential.accessToken };
-    
-    NSString *query = [NSString stringWithFormat:@"https://api.meetup.com/2/members?%@", [NSString queryStringWithDictionary:params]];
-    NSLog(@"URL = %@", query);
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:query]];
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-        NSURLResponse *response = nil; NSError *error = nil;
-        NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-        
-        if (!error) {
-            
-            NSError *error = nil;
-            id json = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&error];
-            if (error) NSLog(@"JSON Parsing error -> %@", error);
-            
-            NSDictionary *results = [[json valueForKey:@"results"] objectAtIndex:0];
-            
-            NSLog(@"Result: \n%@", results);
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                
-                self.nameLabel.text = [results valueForKey:@"name"];
-                NSString *city = [results valueForKey:@"city"];
-                NSString *state = [results valueForKey:@"state"];
-                self.locationLabel.text = [NSString stringWithFormat:@"%@, %@", city, state];
-                
-                NSURL *photoURL = [NSURL URLWithString:[results valueForKeyPath:@"photo.thumb_link"]];
-                [self fetchProfilePhotoAtURL:photoURL];
-                
-            });
-            
-        } else {
-            
-            NSLog(@"Connection error -> %@", error);
-        }
-    });
-}
-
-- (void)fetchProfilePhotoAtURL:(NSURL *)photoURL
-{
-    NSLog(@"Fetching profile photo at URL: %@", photoURL.absoluteString);
-    
-    if (!photoURL) return;
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-        NSData *imageData = [NSData dataWithContentsOfURL:photoURL];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            // use the photo.
-        });
-    });
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
 }
 
 @end
