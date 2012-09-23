@@ -8,7 +8,6 @@
 
 #import "MUOAuth2Client.h"
 #import "MUOAuth2LoginView.h"
-#import "MUOAuth2Credential.h"
 #import "NSString+Query.h"
 
 static NSString *const kMeetupAuthorizationEndpoint = @"https://secure.meetup.com/oauth2/authorize";
@@ -17,21 +16,34 @@ static NSString *const kMeetupAccessEndpoint = @"https://secure.meetup.com/oauth
 typedef void(^SuccessBlock)(MUOAuth2Credential *credential);
 typedef void(^FailureBlock)(NSError *error);
 
-NSString *CredentialSavePath(NSString *fileName) {
+NSString *CredentialSavePath(NSString *clientID) {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    return [[paths objectAtIndex:0] stringByAppendingPathComponent:fileName];
+    NSString *cacheName = [NSString stringWithFormat:@"com.%@.OAuth2.cache", clientID];
+    return [[paths objectAtIndex:0] stringByAppendingPathComponent:cacheName];
 }
+
+@interface MUOAuth2Credential() <NSCoding>
+@property (copy, nonatomic) NSString *clientID;
+@property (copy, nonatomic) NSString *clientSecret;
+@property (copy, nonatomic, readwrite) NSString *accessToken;
+@property (copy, nonatomic) NSString *refreshToken;
+@property (strong, nonatomic) NSDate *expiry;
+@end
 
 @interface MUOAuth2Client() <MUOAuth2LoginViewDelegate>
 @property (nonatomic, strong) MUOAuth2Credential *credential;
+@property (nonatomic, copy) NSString *redirectURI;
 @property (nonatomic, strong) MUOAuth2LoginView *loginView;
 @property (nonatomic, strong) SuccessBlock successBlock;
 @property (nonatomic, strong) FailureBlock failureBlock;
 @end
 
-
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 @implementation MUOAuth2Client
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 + (MUOAuth2Client *)sharedClient
 {
     static MUOAuth2Client *_sharedClient = nil;
@@ -43,143 +55,280 @@ NSString *CredentialSavePath(NSString *fileName) {
     return _sharedClient;
 }
 
-#pragma mark - Public Methods -
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (MUOAuth2Credential *)credentialWithClientID:(NSString *)clientID
+{
+    self.credential = [NSKeyedUnarchiver unarchiveObjectWithFile:CredentialSavePath(clientID)];
+    return self.credential;
+}
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)forgetCredentialWithClientID:(NSString *)clientID
+{
+    NSFileManager *defaultManager = [NSFileManager defaultManager];
+    NSString *cachePath = CredentialSavePath(clientID);
+    if ([defaultManager fileExistsAtPath:cachePath]) {
+        NSError *error = nil;
+        [defaultManager removeItemAtPath:cachePath error:&error];
+        if (error) NSLog(@"Error removing cache -> %@", error);
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)authorizeClientWithID:(NSString *)clientID
                        secret:(NSString *)secret
                   redirectURI:(NSString *)redirectURI
                       success:(void(^)(MUOAuth2Credential *credential))success
                       failure:(void(^)(NSError *error))failure
 {
+    self.redirectURI = redirectURI;
+    
     // Credential.
     self.credential = [[MUOAuth2Credential alloc] init];
     self.credential.clientID = clientID;
     self.credential.clientSecret = secret;
-    self.credential.redirectURI = redirectURI;
     
     // Result blocks.
     self.successBlock = success;
     self.failureBlock = failure;
     
     // Assemble the authorization url.
-    NSString *urlString = [NSString stringWithFormat:@"%@?client_id=%@&response_type=code&redirect_uri=%@&set_mobile=on", kMeetupAuthorizationEndpoint, clientID, redirectURI];
+    NSString *urlString = [NSString stringWithFormat:
+                           @"%@?client_id=%@"
+                           @"&response_type=code"
+                           @"&redirect_uri=%@"
+                           @"&set_mobile=on",
+                           kMeetupAuthorizationEndpoint,
+                           clientID,
+                           redirectURI];
+    
     NSURL *url = [NSURL URLWithString:urlString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     
-    // Create the login web view.
+    // Show the login web view.
     self.loginView = [[MUOAuth2LoginView alloc] initWithRequest:request delegate:self];
     [self.loginView show];
 }
 
-- (void)refreshAccessTokenWithCredential:(MUOAuth2Credential *)credential
-                                 success:(void(^)(MUOAuth2Credential *credential))success
-                                 failure:(void(^)(NSError *error))failure
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)refreshCredential:(MUOAuth2Credential *)credential
+                  success:(void(^)(MUOAuth2Credential *credential))success
+                  failure:(void(^)(NSError *error))failure;
 {
-    self.successBlock = success;
-    self.failureBlock = failure;
-    
-    NSLog(@"Credential: %@", credential);
-    
     NSDictionary *params = @{
-                              @"client_id" : credential.clientID,
-                          @"client_secret" : credential.clientSecret,
-                             @"grant_type" : @"refresh_token",
-                          @"refresh_token" : credential.refreshToken
-                            };
+        @"client_id" : self.credential.clientID,
+        @"client_secret" : self.credential.clientSecret,
+        @"grant_type" : @"refresh_token",
+        @"refresh_token" : self.credential.refreshToken
+    };
     
-    [self performRequestWithParameters:params];
+    [self performRequestWithParameters:params success:^(MUOAuth2Credential *credential) {
+        
+        self.credential = credential;
+        
+        if (self.credential)
+            [NSKeyedArchiver archiveRootObject:self.credential toFile:CredentialSavePath(self.credential.clientID)];
+        
+        if (success != NULL) success(self.credential);
+        
+    } failure:^(NSError *error) {
+        
+        if (failure != NULL) failure(error);
+    }];
 }
 
-- (void)archiveCredential:(MUOAuth2Credential *)credential withName:(NSString *)fileName
-{
-    [NSKeyedArchiver archiveRootObject:credential toFile:CredentialSavePath(fileName)];
-}
 
-- (MUOAuth2Credential *)credentialFromArchive:(NSString *)fileName
-{
-    return [NSKeyedUnarchiver unarchiveObjectWithFile:CredentialSavePath(fileName)];
-}
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Connection Management -
 
-#pragma mark - Private Methods -
-
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)performRequestWithParameters:(NSDictionary *)params
+                             success:(void (^)(MUOAuth2Credential *credential))success
+                             failure:(void (^)(NSError *error))failure
 {
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:kMeetupAccessEndpoint]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:
+                                    [NSURL URLWithString:kMeetupAccessEndpoint]];
+    
     request.HTTPMethod = @"POST";
-    request.HTTPBody = [[NSString queryStringWithDictionary:params] dataUsingEncoding:NSUTF8StringEncoding];
+    request.HTTPBody = [[NSString queryStringWithDictionary:params]
+                        dataUsingEncoding:NSUTF8StringEncoding];
+    request.cachePolicy = NSURLRequestReloadIgnoringLocalAndRemoteCacheData;
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    // Perform the request in a background queue.
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         
-        NSURLResponse *response = nil; NSError *error = nil;
-        NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        NSError *error = nil;
+        NSURLResponse *response = nil;
+        NSData *responseData = [NSURLConnection sendSynchronousRequest:request
+                                                     returningResponse:&response
+                                                                 error:&error];
         
         if (!error) {
-            
-            NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&error];
-            if (error) NSLog(@"JSON parsing error -> %@", error);
-            
-            if ([responseDict valueForKey:@"error"]) {
-                
-                NSLog(@"Error -> %@", responseDict);
-                self.failureBlock(nil);
+            NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:responseData
+                                                                         options:0
+                                                                           error:&error];
+            // JSON Parsing error.
+            if (error) {
+                NSLog(@"JSON parsing error -> %@", error);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (failure != NULL) failure(error);
+                });
                 return;
             }
             
-            NSLog(@"Response: \n%@", responseDict);
+            // Failure response from API.
+            if ([responseDict valueForKey:@"error"]) {
+                NSLog(@"Error -> %@", responseDict);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (failure != NULL) failure(nil); // TODO: Make an error obj to pass here.
+                });
+                return;
+            }
             
+            // Call success block on the main thread.
             dispatch_async(dispatch_get_main_queue(), ^{
+                
                 self.credential.accessToken = [responseDict valueForKey:@"access_token"];
                 self.credential.refreshToken = [responseDict valueForKey:@"refresh_token"];
-                self.credential.expiry = [NSDate dateWithTimeIntervalSinceNow:[[responseDict valueForKey:@"expires_in"] doubleValue]];
+                NSTimeInterval expiration = [[responseDict valueForKey:@"expires_in"] doubleValue];
+                self.credential.expiry = [NSDate dateWithTimeIntervalSinceNow:expiration];
                 
-                if (self.successBlock != NULL) self.successBlock(self.credential);
+                if (success != NULL) success(self.credential);
             });
             
         } else {
-            
             NSLog(@"Connection error -> %@", error);
-            
             dispatch_async(dispatch_get_main_queue(), ^{
-                if (self.failureBlock != NULL) self.failureBlock(error);
+                if (failure != NULL) failure(error);
             });
         }
     });
-
+    
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)requestAccessTokenWithCode:(NSString *)authCode
 {
     NSDictionary *params = @{
-                              @"client_id" : self.credential.clientID,
-                          @"client_secret" : self.credential.clientSecret,
-                             @"grant_type" : @"authorization_code",
-                           @"redirect_uri" : self.credential.redirectURI,
-                                   @"code" : authCode
-                            };
+        @"client_id" : self.credential.clientID,
+        @"client_secret" : self.credential.clientSecret,
+        @"grant_type" : @"authorization_code",
+        @"redirect_uri" : self.redirectURI,
+        @"code" : authCode
+    };
     
-    [self performRequestWithParameters:params];
+    [self performRequestWithParameters:params success:^(MUOAuth2Credential *credential) {
+        
+        self.credential = credential;
+        
+        if (self.credential)
+            [NSKeyedArchiver archiveRootObject:self.credential toFile:CredentialSavePath(self.credential.clientID)];
+        
+        if (self.successBlock != NULL) self.successBlock(self.credential);
+        
+    } failure:^(NSError *error) {
+        
+        if (self.failureBlock != NULL) self.failureBlock(error);
+    }];
 }
 
-
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Login View Delegate
 
-- (BOOL)loginView:(MUOAuth2LoginView *)loginView shouldStartLoadWithRequest:(NSURLRequest *)request
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)loginView:(MUOAuth2LoginView *)sender didFailLoadWithError:(NSError *)error inWebView:(UIWebView *)webView;
 {
-    NSURL *redirectURL = [NSURL URLWithString:self.credential.redirectURI];
-    if ([request.URL.scheme isEqualToString:redirectURL.scheme]) {
+    // Stop loading if the scheme is same as redirect uri.
+    NSURL *redirectURL = [NSURL URLWithString:self.redirectURI];
+    if ([webView.request.URL.scheme isEqualToString:redirectURL.scheme]) {
+        [webView stopLoading];
+    }
+}
 
-        [loginView close];
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (BOOL)loginView:(MUOAuth2LoginView *)sender shouldStartLoadWithRequest:(NSURLRequest *)request
+{
+    NSURL *redirectURL = [NSURL URLWithString:self.redirectURI];
+    if ([request.URL.scheme isEqualToString:redirectURL.scheme]) {
+        
+        [sender close];
         
         NSDictionary *params = [request.URL.query dictionaryFromQueryString];
         
-        NSString *authCode = [params objectForKey:@"code"];
-        [self requestAccessTokenWithCode:authCode];
-        
+        // Failure response from API.
+        if ([params valueForKey:@"error"]) {
+            
+            NSLog(@"Error -> %@", params);
+            self.failureBlock(nil); // TODO: Make an error obj to pass here.
+            
+        } else {
+            NSString *authCode = [params objectForKey:@"code"];
+            [self requestAccessTokenWithCode:authCode];
+        }
         return NO;
     }
-    
     return YES;
+}
+
+@end
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+@implementation MUOAuth2Credential
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (BOOL)isExpired
+{
+    return [self.expiry compare:[NSDate date]] == NSOrderedAscending;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (NSString *)description {
+    return [NSString stringWithFormat:
+            @"<%@"
+            @" accessToken: \"%@\""
+            @" secret: \"%@\""
+            @" refreshToken: \"%@\""
+            @" expires: \"%@\""
+            @">",
+            [self class],
+            self.accessToken,
+            self.clientSecret,
+            self.refreshToken,
+            self.expiry];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - NSCoder
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    self = [super init];
+    if (self) {
+        self.clientID = [decoder decodeObjectForKey:@"clientID"];
+        self.clientSecret = [decoder decodeObjectForKey:@"clientSecret"];
+        self.accessToken = [decoder decodeObjectForKey:@"accessToken"];
+        self.refreshToken = [decoder decodeObjectForKey:@"refreshToken"];
+        self.expiry = [decoder decodeObjectForKey:@"expiry"];
+    }
+    return self;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [encoder encodeObject:self.clientID forKey:@"clientID"];
+    [encoder encodeObject:self.clientSecret forKey:@"clientSecret"];
+    [encoder encodeObject:self.accessToken forKey:@"accessToken"];
+    [encoder encodeObject:self.refreshToken forKey:@"refreshToken"];
+    [encoder encodeObject:self.expiry forKey:@"expiry"];
 }
 
 @end

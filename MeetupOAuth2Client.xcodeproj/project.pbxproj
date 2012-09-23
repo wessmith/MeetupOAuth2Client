@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		DE1A8A29160E64C40046B8FD /* MUOAuth2Client.h in Headers */ = {isa = PBXBuildFile; fileRef = DE3019C5160B78250099C255 /* MUOAuth2Client.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DE1A8A2A160E64C90046B8FD /* MUOAuth2Credential.h in Headers */ = {isa = PBXBuildFile; fileRef = DE3019C9160B78250099C255 /* MUOAuth2Credential.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DE3019A8160B77FE0099C255 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3019A7160B77FE0099C255 /* UIKit.framework */; };
 		DE3019AA160B77FE0099C255 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3019A9160B77FE0099C255 /* Foundation.framework */; };
 		DE3019AC160B77FE0099C255 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3019AB160B77FE0099C255 /* CoreGraphics.framework */; };
@@ -19,7 +18,6 @@
 		DE3019BE160B77FE0099C255 /* MUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3019BD160B77FE0099C255 /* MUViewController.m */; };
 		DE3019CD160B78250099C255 /* MUOAuth2Client.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3019C6160B78250099C255 /* MUOAuth2Client.m */; };
 		DE3019CE160B78250099C255 /* MUOAuth2LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3019C8160B78250099C255 /* MUOAuth2LoginView.m */; };
-		DE3019CF160B78250099C255 /* MUOAuth2Credential.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3019CA160B78250099C255 /* MUOAuth2Credential.m */; };
 		DE3019D0160B78250099C255 /* NSString+Query.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3019CC160B78250099C255 /* NSString+Query.m */; };
 		DE3019E9160BD5AE0099C255 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3019A9160B77FE0099C255 /* Foundation.framework */; };
 		DE3019F8160BD5AF0099C255 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3019F7160BD5AF0099C255 /* SenTestingKit.framework */; };
@@ -30,8 +28,8 @@
 		DE301A06160BD5AF0099C255 /* MUOAuth2ClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DE301A05160BD5AF0099C255 /* MUOAuth2ClientTests.m */; };
 		DE301A20160BF27E0099C255 /* MUOAuth2Client.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3019C6160B78250099C255 /* MUOAuth2Client.m */; };
 		DE301A21160BF27E0099C255 /* MUOAuth2LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3019C8160B78250099C255 /* MUOAuth2LoginView.m */; };
-		DE301A22160BF27E0099C255 /* MUOAuth2Credential.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3019CA160B78250099C255 /* MUOAuth2Credential.m */; };
 		DE301A23160BF27E0099C255 /* NSString+Query.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3019CC160B78250099C255 /* NSString+Query.m */; };
+		DE390226160FA4F400B5271D /* NSString+Query.h in Headers */ = {isa = PBXBuildFile; fileRef = DE3019CB160B78250099C255 /* NSString+Query.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DE6ED402160C0D17009DB9EA /* MUProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6ED401160C0D17009DB9EA /* MUProfileViewController.m */; };
 		DE6ED407160C24E9009DB9EA /* MUProfilePlaceholderFemale.png in Resources */ = {isa = PBXBuildFile; fileRef = DE6ED405160C24E9009DB9EA /* MUProfilePlaceholderFemale.png */; };
 		DE6ED408160C24E9009DB9EA /* MUProfilePlaceholderMale.png in Resources */ = {isa = PBXBuildFile; fileRef = DE6ED406160C24E9009DB9EA /* MUProfilePlaceholderMale.png */; };
@@ -77,8 +75,6 @@
 		DE3019C6160B78250099C255 /* MUOAuth2Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUOAuth2Client.m; sourceTree = "<group>"; };
 		DE3019C7160B78250099C255 /* MUOAuth2LoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUOAuth2LoginView.h; sourceTree = "<group>"; };
 		DE3019C8160B78250099C255 /* MUOAuth2LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUOAuth2LoginView.m; sourceTree = "<group>"; };
-		DE3019C9160B78250099C255 /* MUOAuth2Credential.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUOAuth2Credential.h; sourceTree = "<group>"; };
-		DE3019CA160B78250099C255 /* MUOAuth2Credential.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUOAuth2Credential.m; sourceTree = "<group>"; };
 		DE3019CB160B78250099C255 /* NSString+Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Query.h"; sourceTree = "<group>"; };
 		DE3019CC160B78250099C255 /* NSString+Query.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Query.m"; sourceTree = "<group>"; };
 		DE3019E8160BD5AE0099C255 /* libMUOAuth2Client.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMUOAuth2Client.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,9 +123,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DE1A8A77160F86610046B8FD /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				DE3019CB160B78250099C255 /* NSString+Query.h */,
+				DE3019CC160B78250099C255 /* NSString+Query.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		DE301998160B77FE0099C255 = {
 			isa = PBXGroup;
 			children = (
+				DE1A8A77160F86610046B8FD /* Categories */,
 				DE3019C4160B78110099C255 /* Classes */,
 				DE3019AD160B77FE0099C255 /* MeetupOAuth2Client */,
 				DE3019EA160BD5AE0099C255 /* MUOAuth2Client */,
@@ -194,10 +200,6 @@
 				DE3019C6160B78250099C255 /* MUOAuth2Client.m */,
 				DE3019C7160B78250099C255 /* MUOAuth2LoginView.h */,
 				DE3019C8160B78250099C255 /* MUOAuth2LoginView.m */,
-				DE3019C9160B78250099C255 /* MUOAuth2Credential.h */,
-				DE3019CA160B78250099C255 /* MUOAuth2Credential.m */,
-				DE3019CB160B78250099C255 /* NSString+Query.h */,
-				DE3019CC160B78250099C255 /* NSString+Query.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -253,7 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE1A8A29160E64C40046B8FD /* MUOAuth2Client.h in Headers */,
-				DE1A8A2A160E64C90046B8FD /* MUOAuth2Credential.h in Headers */,
+				DE390226160FA4F400B5271D /* NSString+Query.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,7 +408,6 @@
 				DE3019BE160B77FE0099C255 /* MUViewController.m in Sources */,
 				DE3019CD160B78250099C255 /* MUOAuth2Client.m in Sources */,
 				DE3019CE160B78250099C255 /* MUOAuth2LoginView.m in Sources */,
-				DE3019CF160B78250099C255 /* MUOAuth2Credential.m in Sources */,
 				DE3019D0160B78250099C255 /* NSString+Query.m in Sources */,
 				DE6ED402160C0D17009DB9EA /* MUProfileViewController.m in Sources */,
 			);
@@ -418,7 +419,6 @@
 			files = (
 				DE301A20160BF27E0099C255 /* MUOAuth2Client.m in Sources */,
 				DE301A21160BF27E0099C255 /* MUOAuth2LoginView.m in Sources */,
-				DE301A22160BF27E0099C255 /* MUOAuth2Credential.m in Sources */,
 				DE301A23160BF27E0099C255 /* NSString+Query.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
