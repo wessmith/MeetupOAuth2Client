@@ -24,15 +24,15 @@
 		DE3019F9160BD5AF0099C255 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3019A7160B77FE0099C255 /* UIKit.framework */; };
 		DE3019FA160BD5AF0099C255 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3019A9160B77FE0099C255 /* Foundation.framework */; };
 		DE3019FD160BD5AF0099C255 /* libMUOAuth2Client.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3019E8160BD5AE0099C255 /* libMUOAuth2Client.a */; };
-		DE301A03160BD5AF0099C255 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE301A01160BD5AF0099C255 /* InfoPlist.strings */; };
-		DE301A06160BD5AF0099C255 /* MUOAuth2ClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DE301A05160BD5AF0099C255 /* MUOAuth2ClientTests.m */; };
 		DE301A20160BF27E0099C255 /* MUOAuth2Client.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3019C6160B78250099C255 /* MUOAuth2Client.m */; };
 		DE301A21160BF27E0099C255 /* MUOAuth2LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3019C8160B78250099C255 /* MUOAuth2LoginView.m */; };
 		DE301A23160BF27E0099C255 /* NSString+Query.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3019CC160B78250099C255 /* NSString+Query.m */; };
 		DE390226160FA4F400B5271D /* NSString+Query.h in Headers */ = {isa = PBXBuildFile; fileRef = DE3019CB160B78250099C255 /* NSString+Query.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DE6ED402160C0D17009DB9EA /* MUProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6ED401160C0D17009DB9EA /* MUProfileViewController.m */; };
-		DE6ED407160C24E9009DB9EA /* MUProfilePlaceholderFemale.png in Resources */ = {isa = PBXBuildFile; fileRef = DE6ED405160C24E9009DB9EA /* MUProfilePlaceholderFemale.png */; };
-		DE6ED408160C24E9009DB9EA /* MUProfilePlaceholderMale.png in Resources */ = {isa = PBXBuildFile; fileRef = DE6ED406160C24E9009DB9EA /* MUProfilePlaceholderMale.png */; };
+		DEB7AE52160FE493009961A3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DEB7AE4E160FE493009961A3 /* Default-568h@2x.png */; };
+		DEB7AE53160FE493009961A3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DEB7AE4F160FE493009961A3 /* Default.png */; };
+		DEB7AE54160FE493009961A3 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DEB7AE50160FE493009961A3 /* Default@2x.png */; };
+		DEB7AE55160FE493009961A3 /* MeetupProfileImagePlaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = DEB7AE51160FE493009961A3 /* MeetupProfileImagePlaceholder.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,14 +58,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		DE3019A3160B77FE0099C255 /* MeetupOAuth2Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetupOAuth2Client.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE3019A3160B77FE0099C255 /* MeetupOAuth2Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetupOAuth2Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE3019A7160B77FE0099C255 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DE3019A9160B77FE0099C255 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DE3019AB160B77FE0099C255 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		DE3019AF160B77FE0099C255 /* MeetupOAuth2Client-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MeetupOAuth2Client-Info.plist"; sourceTree = "<group>"; };
+		DE3019AF160B77FE0099C255 /* MeetupOAuth2Demo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MeetupOAuth2Demo-Info.plist"; sourceTree = "<group>"; };
 		DE3019B1160B77FE0099C255 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DE3019B3160B77FE0099C255 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		DE3019B5160B77FE0099C255 /* MeetupOAuth2Client-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MeetupOAuth2Client-Prefix.pch"; sourceTree = "<group>"; };
+		DE3019B5160B77FE0099C255 /* MeetupOAuth2Demo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MeetupOAuth2Demo-Prefix.pch"; sourceTree = "<group>"; };
 		DE3019B6160B77FE0099C255 /* MUAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUAppDelegate.h; sourceTree = "<group>"; };
 		DE3019B7160B77FE0099C255 /* MUAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUAppDelegate.m; sourceTree = "<group>"; };
 		DE3019BA160B77FE0099C255 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
@@ -80,14 +80,12 @@
 		DE3019E8160BD5AE0099C255 /* libMUOAuth2Client.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMUOAuth2Client.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE3019F6160BD5AF0099C255 /* MUOAuth2ClientTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MUOAuth2ClientTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE3019F7160BD5AF0099C255 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		DE301A00160BD5AF0099C255 /* MUOAuth2ClientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MUOAuth2ClientTests-Info.plist"; sourceTree = "<group>"; };
-		DE301A02160BD5AF0099C255 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		DE301A04160BD5AF0099C255 /* MUOAuth2ClientTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUOAuth2ClientTests.h; sourceTree = "<group>"; };
-		DE301A05160BD5AF0099C255 /* MUOAuth2ClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUOAuth2ClientTests.m; sourceTree = "<group>"; };
 		DE6ED400160C0D17009DB9EA /* MUProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUProfileViewController.h; sourceTree = "<group>"; };
 		DE6ED401160C0D17009DB9EA /* MUProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUProfileViewController.m; sourceTree = "<group>"; };
-		DE6ED405160C24E9009DB9EA /* MUProfilePlaceholderFemale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MUProfilePlaceholderFemale.png; sourceTree = "<group>"; };
-		DE6ED406160C24E9009DB9EA /* MUProfilePlaceholderMale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MUProfilePlaceholderMale.png; sourceTree = "<group>"; };
+		DEB7AE4E160FE493009961A3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		DEB7AE4F160FE493009961A3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		DEB7AE50160FE493009961A3 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		DEB7AE51160FE493009961A3 /* MeetupProfileImagePlaceholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MeetupProfileImagePlaceholder.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,16 +128,14 @@
 				DE3019CC160B78250099C255 /* NSString+Query.m */,
 			);
 			name = Categories;
+			path = src;
 			sourceTree = "<group>";
 		};
 		DE301998160B77FE0099C255 = {
 			isa = PBXGroup;
 			children = (
-				DE1A8A77160F86610046B8FD /* Categories */,
-				DE3019C4160B78110099C255 /* Classes */,
-				DE3019AD160B77FE0099C255 /* MeetupOAuth2Client */,
+				DE3019AD160B77FE0099C255 /* MeetupOAuth2Demo */,
 				DE3019EA160BD5AE0099C255 /* MUOAuth2Client */,
-				DE3019FE160BD5AF0099C255 /* MUOAuth2ClientTests */,
 				DE3019A6160B77FE0099C255 /* Frameworks */,
 				DE3019A4160B77FE0099C255 /* Products */,
 			);
@@ -148,7 +144,7 @@
 		DE3019A4160B77FE0099C255 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DE3019A3160B77FE0099C255 /* MeetupOAuth2Client.app */,
+				DE3019A3160B77FE0099C255 /* MeetupOAuth2Demo.app */,
 				DE3019E8160BD5AE0099C255 /* libMUOAuth2Client.a */,
 				DE3019F6160BD5AF0099C255 /* MUOAuth2ClientTests.octest */,
 			);
@@ -166,29 +162,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		DE3019AD160B77FE0099C255 /* MeetupOAuth2Client */ = {
+		DE3019AD160B77FE0099C255 /* MeetupOAuth2Demo */ = {
 			isa = PBXGroup;
 			children = (
+				DEB7AE4D160FE475009961A3 /* Classes */,
 				DE6ED404160C24E9009DB9EA /* Resources */,
-				DE3019B6160B77FE0099C255 /* MUAppDelegate.h */,
-				DE3019B7160B77FE0099C255 /* MUAppDelegate.m */,
 				DE3019B9160B77FE0099C255 /* MainStoryboard.storyboard */,
-				DE3019BC160B77FE0099C255 /* MUViewController.h */,
-				DE3019BD160B77FE0099C255 /* MUViewController.m */,
 				DE3019AE160B77FE0099C255 /* Supporting Files */,
-				DE6ED400160C0D17009DB9EA /* MUProfileViewController.h */,
-				DE6ED401160C0D17009DB9EA /* MUProfileViewController.m */,
 			);
-			path = MeetupOAuth2Client;
+			path = MeetupOAuth2Demo;
 			sourceTree = "<group>";
 		};
 		DE3019AE160B77FE0099C255 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				DE3019AF160B77FE0099C255 /* MeetupOAuth2Client-Info.plist */,
+				DE3019B6160B77FE0099C255 /* MUAppDelegate.h */,
+				DE3019B7160B77FE0099C255 /* MUAppDelegate.m */,
+				DE3019AF160B77FE0099C255 /* MeetupOAuth2Demo-Info.plist */,
 				DE3019B0160B77FE0099C255 /* InfoPlist.strings */,
 				DE3019B3160B77FE0099C255 /* main.m */,
-				DE3019B5160B77FE0099C255 /* MeetupOAuth2Client-Prefix.pch */,
+				DE3019B5160B77FE0099C255 /* MeetupOAuth2Demo-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -202,11 +195,14 @@
 				DE3019C8160B78250099C255 /* MUOAuth2LoginView.m */,
 			);
 			name = Classes;
+			path = src;
 			sourceTree = "<group>";
 		};
 		DE3019EA160BD5AE0099C255 /* MUOAuth2Client */ = {
 			isa = PBXGroup;
 			children = (
+				DE1A8A77160F86610046B8FD /* Categories */,
+				DE3019C4160B78110099C255 /* Classes */,
 				DE3019EB160BD5AE0099C255 /* Supporting Files */,
 			);
 			path = MUOAuth2Client;
@@ -219,32 +215,26 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		DE3019FE160BD5AF0099C255 /* MUOAuth2ClientTests */ = {
-			isa = PBXGroup;
-			children = (
-				DE301A04160BD5AF0099C255 /* MUOAuth2ClientTests.h */,
-				DE301A05160BD5AF0099C255 /* MUOAuth2ClientTests.m */,
-				DE3019FF160BD5AF0099C255 /* Supporting Files */,
-			);
-			path = MUOAuth2ClientTests;
-			sourceTree = "<group>";
-		};
-		DE3019FF160BD5AF0099C255 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				DE301A00160BD5AF0099C255 /* MUOAuth2ClientTests-Info.plist */,
-				DE301A01160BD5AF0099C255 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		DE6ED404160C24E9009DB9EA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				DE6ED405160C24E9009DB9EA /* MUProfilePlaceholderFemale.png */,
-				DE6ED406160C24E9009DB9EA /* MUProfilePlaceholderMale.png */,
+				DEB7AE4E160FE493009961A3 /* Default-568h@2x.png */,
+				DEB7AE4F160FE493009961A3 /* Default.png */,
+				DEB7AE50160FE493009961A3 /* Default@2x.png */,
+				DEB7AE51160FE493009961A3 /* MeetupProfileImagePlaceholder.png */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		DEB7AE4D160FE475009961A3 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				DE3019BC160B77FE0099C255 /* MUViewController.h */,
+				DE3019BD160B77FE0099C255 /* MUViewController.m */,
+				DE6ED400160C0D17009DB9EA /* MUProfileViewController.h */,
+				DE6ED401160C0D17009DB9EA /* MUProfileViewController.m */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,9 +252,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		DE3019A2160B77FE0099C255 /* MeetupOAuth2Client */ = {
+		DE3019A2160B77FE0099C255 /* MeetupOAuth2Demo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DE3019C1160B77FE0099C255 /* Build configuration list for PBXNativeTarget "MeetupOAuth2Client" */;
+			buildConfigurationList = DE3019C1160B77FE0099C255 /* Build configuration list for PBXNativeTarget "MeetupOAuth2Demo" */;
 			buildPhases = (
 				DE30199F160B77FE0099C255 /* Sources */,
 				DE3019A0160B77FE0099C255 /* Frameworks */,
@@ -274,9 +264,9 @@
 			);
 			dependencies = (
 			);
-			name = MeetupOAuth2Client;
+			name = MeetupOAuth2Demo;
 			productName = MeetupOAuth2Client;
-			productReference = DE3019A3160B77FE0099C255 /* MeetupOAuth2Client.app */;
+			productReference = DE3019A3160B77FE0099C255 /* MeetupOAuth2Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
 		DE3019E7160BD5AE0099C255 /* MUOAuth2Client */ = {
@@ -327,7 +317,7 @@
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Wesley Smith";
 			};
-			buildConfigurationList = DE30199D160B77FE0099C255 /* Build configuration list for PBXProject "MeetupOAuth2Client" */;
+			buildConfigurationList = DE30199D160B77FE0099C255 /* Build configuration list for PBXProject "MeetupOAuth2Demo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -339,7 +329,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DE3019A2160B77FE0099C255 /* MeetupOAuth2Client */,
+				DE3019A2160B77FE0099C255 /* MeetupOAuth2Demo */,
 				DE3019E7160BD5AE0099C255 /* MUOAuth2Client */,
 				DE3019F5160BD5AF0099C255 /* MUOAuth2ClientTests */,
 			);
@@ -353,8 +343,10 @@
 			files = (
 				DE3019B2160B77FE0099C255 /* InfoPlist.strings in Resources */,
 				DE3019BB160B77FE0099C255 /* MainStoryboard.storyboard in Resources */,
-				DE6ED407160C24E9009DB9EA /* MUProfilePlaceholderFemale.png in Resources */,
-				DE6ED408160C24E9009DB9EA /* MUProfilePlaceholderMale.png in Resources */,
+				DEB7AE52160FE493009961A3 /* Default-568h@2x.png in Resources */,
+				DEB7AE53160FE493009961A3 /* Default.png in Resources */,
+				DEB7AE54160FE493009961A3 /* Default@2x.png in Resources */,
+				DEB7AE55160FE493009961A3 /* MeetupProfileImagePlaceholder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,7 +354,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE301A03160BD5AF0099C255 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,7 +418,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE301A06160BD5AF0099C255 /* MUOAuth2ClientTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,14 +446,6 @@
 				DE3019BA160B77FE0099C255 /* en */,
 			);
 			name = MainStoryboard.storyboard;
-			sourceTree = "<group>";
-		};
-		DE301A01160BD5AF0099C255 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DE301A02160BD5AF0099C255 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -522,9 +504,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MeetupOAuth2Client/MeetupOAuth2Client-Prefix.pch";
-				INFOPLIST_FILE = "MeetupOAuth2Client/MeetupOAuth2Client-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "MeetupOAuth2Demo/MeetupOAuth2Demo-Prefix.pch";
+				INFOPLIST_FILE = "MeetupOAuth2Demo/MeetupOAuth2Demo-Info.plist";
+				PRODUCT_NAME = MeetupOAuth2Demo;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -533,9 +515,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MeetupOAuth2Client/MeetupOAuth2Client-Prefix.pch";
-				INFOPLIST_FILE = "MeetupOAuth2Client/MeetupOAuth2Client-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "MeetupOAuth2Demo/MeetupOAuth2Demo-Prefix.pch";
+				INFOPLIST_FILE = "MeetupOAuth2Demo/MeetupOAuth2Demo-Info.plist";
+				PRODUCT_NAME = MeetupOAuth2Demo;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -597,7 +579,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DE30199D160B77FE0099C255 /* Build configuration list for PBXProject "MeetupOAuth2Client" */ = {
+		DE30199D160B77FE0099C255 /* Build configuration list for PBXProject "MeetupOAuth2Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DE3019BF160B77FE0099C255 /* Debug */,
@@ -606,7 +588,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DE3019C1160B77FE0099C255 /* Build configuration list for PBXNativeTarget "MeetupOAuth2Client" */ = {
+		DE3019C1160B77FE0099C255 /* Build configuration list for PBXNativeTarget "MeetupOAuth2Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DE3019C2160B77FE0099C255 /* Debug */,
