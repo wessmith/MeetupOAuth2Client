@@ -134,8 +134,8 @@
 		DE301998160B77FE0099C255 = {
 			isa = PBXGroup;
 			children = (
-				DE3019AD160B77FE0099C255 /* MeetupOAuth2Demo */,
 				DE3019EA160BD5AE0099C255 /* MUOAuth2Client */,
+				DE3019AD160B77FE0099C255 /* MeetupOAuth2Demo */,
 				DE3019A6160B77FE0099C255 /* Frameworks */,
 				DE3019A4160B77FE0099C255 /* Products */,
 			);

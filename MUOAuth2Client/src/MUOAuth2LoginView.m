@@ -114,10 +114,17 @@ const NSTimeInterval kBounceAnimationDuration = 0.15;
         backgroundView.clipsToBounds = YES;
         [self addSubview:backgroundView];
         
+        self.activityView = [[UIActivityIndicatorView alloc]
+         initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        self.activityView.color = [UIColor grayColor];
+        self.activityView.center = backgroundView.center;
+        self.activityView.hidesWhenStopped = YES;
+        [self addSubview:self.activityView];
+        
         self.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.6];
         self.layer.cornerRadius = 10.f;
         self.alpha = 0.f;
-        self.transform = CGAffineTransformMakeScale(0.001, 0.001);
+        self.transform = CGAffineTransformMakeScale(0.001, 0.001);        
         
         // Load the request.
         [self.webView loadRequest:request];
@@ -146,19 +153,6 @@ const NSTimeInterval kBounceAnimationDuration = 0.15;
         _webView.delegate = self;
     }
     return _webView;
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (UIActivityIndicatorView *)activityView
-{
-    if (!_activityView) {
-        _activityView = [[UIActivityIndicatorView alloc]
-                         initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-        _activityView.color = [UIColor grayColor];
-        _activityView.center = self.center;
-        _activityView.hidesWhenStopped = YES;
-    }
-    return _activityView;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
