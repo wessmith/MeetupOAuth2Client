@@ -72,6 +72,8 @@ NSString *CredentialSavePath(NSString *clientID) {
         [defaultManager removeItemAtPath:cachePath error:&error];
         if (error) NSLog(@"Error removing cache -> %@", error);
     }
+    
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -268,6 +270,7 @@ NSString *CredentialSavePath(NSString *clientID) {
             NSString *authCode = [params objectForKey:@"code"];
             [self requestAccessTokenWithCode:authCode];
         }
+        
         return NO;
     }
     return YES;
