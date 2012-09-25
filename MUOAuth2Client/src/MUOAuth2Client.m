@@ -223,7 +223,10 @@ NSString *CredentialSavePath(NSString *clientID) {
     
     [self performRequestWithParameters:params success:^(MUOAuth2Credential *credential) {
         
-        self.credential = credential;
+        // Update the credential with the new data.
+        self.credential.accessToken = credential.accessToken;
+        self.credential.refreshToken = credential.refreshToken;
+        self.credential.expiry = credential.expiry;
         
         if (self.credential)
             [NSKeyedArchiver archiveRootObject:self.credential toFile:CredentialSavePath(self.credential.clientID)];
