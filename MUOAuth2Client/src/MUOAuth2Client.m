@@ -74,6 +74,12 @@ NSString *CredentialSavePath(NSString *clientID) {
     }
     
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
+    
+    NSHTTPCookie *cookie;
+    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (cookie in [storage cookies]) {
+        [storage deleteCookie:cookie];
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -155,7 +161,7 @@ NSString *CredentialSavePath(NSString *clientID) {
     request.HTTPMethod = @"POST";
     request.HTTPBody = [[NSString queryStringWithDictionary:params]
                         dataUsingEncoding:NSUTF8StringEncoding];
-    request.cachePolicy = NSURLRequestReloadIgnoringLocalAndRemoteCacheData;
+    request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     
     // Perform the request in a background queue.
