@@ -2,18 +2,31 @@
 //  MUViewController.m
 //  MeetupOAuth2Client
 //
-//  Created by Wes on 9/20/12.
+//  Created by Wesley Smith on 9/20/12.
 //  Copyright (c) 2012 Wesley Smith. All rights reserved.
 //
+//
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//  http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
+
 
 #import "MUViewController.h"
 #import "MUOAuth2Client.h"
 #import "MUProfileViewController.h"
 
-#error You need to enter you own consumer detials here.
-static NSString *const kClientID = @"";
-static NSString *const kClientSecret = @"";
-static NSString *const kRedirectURI = @"";
+//#error You need to enter you own consumer detials here.
+static NSString *const kClientID = @"ojtt0avlqe41hq4or07ovdforp";
+static NSString *const kClientSecret = @"pcj2umuk3igeugcor9ppaqpv3o";
+static NSString *const kRedirectURI = @"lookup://oauth2";
 
 @interface MUViewController() <MUProfileViewControllerDelegate>
 @property (nonatomic, strong) MUOAuth2Credential *credential;

@@ -20,10 +20,6 @@
 		DE3019CE160B78250099C255 /* MUOAuth2LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3019C8160B78250099C255 /* MUOAuth2LoginView.m */; };
 		DE3019D0160B78250099C255 /* NSString+Query.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3019CC160B78250099C255 /* NSString+Query.m */; };
 		DE3019E9160BD5AE0099C255 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3019A9160B77FE0099C255 /* Foundation.framework */; };
-		DE3019F8160BD5AF0099C255 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3019F7160BD5AF0099C255 /* SenTestingKit.framework */; };
-		DE3019F9160BD5AF0099C255 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3019A7160B77FE0099C255 /* UIKit.framework */; };
-		DE3019FA160BD5AF0099C255 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3019A9160B77FE0099C255 /* Foundation.framework */; };
-		DE3019FD160BD5AF0099C255 /* libMUOAuth2Client.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3019E8160BD5AE0099C255 /* libMUOAuth2Client.a */; };
 		DE301A20160BF27E0099C255 /* MUOAuth2Client.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3019C6160B78250099C255 /* MUOAuth2Client.m */; };
 		DE301A21160BF27E0099C255 /* MUOAuth2LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3019C8160B78250099C255 /* MUOAuth2LoginView.m */; };
 		DE301A23160BF27E0099C255 /* NSString+Query.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3019CC160B78250099C255 /* NSString+Query.m */; };
@@ -34,16 +30,6 @@
 		DEB7AE54160FE493009961A3 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DEB7AE50160FE493009961A3 /* Default@2x.png */; };
 		DEB7AE55160FE493009961A3 /* MeetupProfileImagePlaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = DEB7AE51160FE493009961A3 /* MeetupProfileImagePlaceholder.png */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		DE3019FB160BD5AF0099C255 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DE30199A160B77FE0099C255 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DE3019E7160BD5AE0099C255;
-			remoteInfo = MUOAuth2Client;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		DE3019E6160BD5AE0099C255 /* CopyFiles */ = {
@@ -78,7 +64,6 @@
 		DE3019CB160B78250099C255 /* NSString+Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Query.h"; sourceTree = "<group>"; };
 		DE3019CC160B78250099C255 /* NSString+Query.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Query.m"; sourceTree = "<group>"; };
 		DE3019E8160BD5AE0099C255 /* libMUOAuth2Client.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMUOAuth2Client.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		DE3019F6160BD5AF0099C255 /* MUOAuth2ClientTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MUOAuth2ClientTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE3019F7160BD5AF0099C255 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		DE6ED400160C0D17009DB9EA /* MUProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUProfileViewController.h; sourceTree = "<group>"; };
 		DE6ED401160C0D17009DB9EA /* MUProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUProfileViewController.m; sourceTree = "<group>"; };
@@ -104,17 +89,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE3019E9160BD5AE0099C255 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DE3019F2160BD5AF0099C255 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DE3019F8160BD5AF0099C255 /* SenTestingKit.framework in Frameworks */,
-				DE3019F9160BD5AF0099C255 /* UIKit.framework in Frameworks */,
-				DE3019FA160BD5AF0099C255 /* Foundation.framework in Frameworks */,
-				DE3019FD160BD5AF0099C255 /* libMUOAuth2Client.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,7 +120,6 @@
 			children = (
 				DE3019A3160B77FE0099C255 /* MeetupOAuth2Demo.app */,
 				DE3019E8160BD5AE0099C255 /* libMUOAuth2Client.a */,
-				DE3019F6160BD5AF0099C255 /* MUOAuth2ClientTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -203,16 +176,8 @@
 			children = (
 				DE1A8A77160F86610046B8FD /* Categories */,
 				DE3019C4160B78110099C255 /* Classes */,
-				DE3019EB160BD5AE0099C255 /* Supporting Files */,
 			);
 			path = MUOAuth2Client;
-			sourceTree = "<group>";
-		};
-		DE3019EB160BD5AE0099C255 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		DE6ED404160C24E9009DB9EA /* Resources */ = {
@@ -288,25 +253,6 @@
 			productReference = DE3019E8160BD5AE0099C255 /* libMUOAuth2Client.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		DE3019F5160BD5AF0099C255 /* MUOAuth2ClientTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DE301A0C160BD5AF0099C255 /* Build configuration list for PBXNativeTarget "MUOAuth2ClientTests" */;
-			buildPhases = (
-				DE3019F1160BD5AF0099C255 /* Sources */,
-				DE3019F2160BD5AF0099C255 /* Frameworks */,
-				DE3019F3160BD5AF0099C255 /* Resources */,
-				DE3019F4160BD5AF0099C255 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DE3019FC160BD5AF0099C255 /* PBXTargetDependency */,
-			);
-			name = MUOAuth2ClientTests;
-			productName = MUOAuth2ClientTests;
-			productReference = DE3019F6160BD5AF0099C255 /* MUOAuth2ClientTests.octest */;
-			productType = "com.apple.product-type.bundle";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -331,7 +277,6 @@
 			targets = (
 				DE3019A2160B77FE0099C255 /* MeetupOAuth2Demo */,
 				DE3019E7160BD5AE0099C255 /* MUOAuth2Client */,
-				DE3019F5160BD5AF0099C255 /* MUOAuth2ClientTests */,
 			);
 		};
 /* End PBXProject section */
@@ -347,13 +292,6 @@
 				DEB7AE53160FE493009961A3 /* Default.png in Resources */,
 				DEB7AE54160FE493009961A3 /* Default@2x.png in Resources */,
 				DEB7AE55160FE493009961A3 /* MeetupProfileImagePlaceholder.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DE3019F3160BD5AF0099C255 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,19 +311,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "KEYWORDS=\"TODO:|FIXME:|\\?\\?\\?:|\\!\\!\\!:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | perl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"";
-		};
-		DE3019F4160BD5AF0099C255 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -414,22 +339,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DE3019F1160BD5AF0099C255 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		DE3019FC160BD5AF0099C255 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DE3019E7160BD5AE0099C255 /* MUOAuth2Client */;
-			targetProxy = DE3019FB160BD5AF0099C255 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DE3019B0160B77FE0099C255 /* InfoPlist.strings */ = {
@@ -546,36 +456,6 @@
 			};
 			name = Release;
 		};
-		DE301A09160BD5AF0099C255 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MUOAuth2Client/MUOAuth2Client-Prefix.pch";
-				INFOPLIST_FILE = "MUOAuth2ClientTests/MUOAuth2ClientTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		DE301A0A160BD5AF0099C255 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MUOAuth2Client/MUOAuth2Client-Prefix.pch";
-				INFOPLIST_FILE = "MUOAuth2ClientTests/MUOAuth2ClientTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -602,15 +482,6 @@
 			buildConfigurations = (
 				DE301A07160BD5AF0099C255 /* Debug */,
 				DE301A08160BD5AF0099C255 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DE301A0C160BD5AF0099C255 /* Build configuration list for PBXNativeTarget "MUOAuth2ClientTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DE301A09160BD5AF0099C255 /* Debug */,
-				DE301A0A160BD5AF0099C255 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
