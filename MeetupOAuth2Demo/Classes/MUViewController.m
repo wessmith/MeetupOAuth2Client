@@ -57,6 +57,8 @@ static NSString *const kRedirectURI = @"lookup://oauth2";
             
             NSLog(@"\nRefreshed Credential: \n%@\n", [credential description]);
             
+            self.credential = credential;
+            
         } failure:^(NSError *error) {
             
             NSLog(@"Authorization error -> %@", error);
