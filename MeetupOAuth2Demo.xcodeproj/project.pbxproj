@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DE1A8A29160E64C40046B8FD /* MUOAuth2Client.h in Headers */ = {isa = PBXBuildFile; fileRef = DE3019C5160B78250099C255 /* MUOAuth2Client.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DE1A8A29160E64C40046B8FD /* MUOAuth2Client.h in Headers */ = {isa = PBXBuildFile; fileRef = DE3019C5160B78250099C255 /* MUOAuth2Client.h */; settings = {ATTRIBUTES = (); }; };
 		DE3019A8160B77FE0099C255 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3019A7160B77FE0099C255 /* UIKit.framework */; };
 		DE3019AA160B77FE0099C255 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3019A9160B77FE0099C255 /* Foundation.framework */; };
 		DE3019AC160B77FE0099C255 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3019AB160B77FE0099C255 /* CoreGraphics.framework */; };
@@ -23,7 +23,7 @@
 		DE301A20160BF27E0099C255 /* MUOAuth2Client.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3019C6160B78250099C255 /* MUOAuth2Client.m */; };
 		DE301A21160BF27E0099C255 /* MUOAuth2LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3019C8160B78250099C255 /* MUOAuth2LoginView.m */; };
 		DE301A23160BF27E0099C255 /* NSString+Query.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3019CC160B78250099C255 /* NSString+Query.m */; };
-		DE390226160FA4F400B5271D /* NSString+Query.h in Headers */ = {isa = PBXBuildFile; fileRef = DE3019CB160B78250099C255 /* NSString+Query.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DE390226160FA4F400B5271D /* NSString+Query.h in Headers */ = {isa = PBXBuildFile; fileRef = DE3019CB160B78250099C255 /* NSString+Query.h */; settings = {ATTRIBUTES = (); }; };
 		DE6ED402160C0D17009DB9EA /* MUProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6ED401160C0D17009DB9EA /* MUProfileViewController.m */; };
 		DEB7AE52160FE493009961A3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DEB7AE4E160FE493009961A3 /* Default-568h@2x.png */; };
 		DEB7AE53160FE493009961A3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DEB7AE4F160FE493009961A3 /* Default.png */; };
@@ -435,11 +435,16 @@
 		DE301A07160BD5AF0099C255 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DSTROOT = /tmp/MUOAuth2Client.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MUOAuth2Client/MUOAuth2Client-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -447,11 +452,16 @@
 		DE301A08160BD5AF0099C255 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				DSTROOT = /tmp/MUOAuth2Client.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MUOAuth2Client/MUOAuth2Client-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
