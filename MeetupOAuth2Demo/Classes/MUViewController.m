@@ -23,10 +23,10 @@
 #import "MUOAuth2Client.h"
 #import "MUProfileViewController.h"
 
-//#error You need to enter you own consumer detials here.
-static NSString *const kClientID = @"ojtt0avlqe41hq4or07ovdforp";
-static NSString *const kClientSecret = @"pcj2umuk3igeugcor9ppaqpv3o";
-static NSString *const kRedirectURI = @"lookup://oauth2";
+#error You need to enter you own consumer detials here.
+static NSString *const kClientID = @"<YOUR CLIENT ID>";
+static NSString *const kClientSecret = @"<YOUR CLIENT SECRET>";
+static NSString *const kRedirectURI = @"<YOUR REDIRECT URL>";
 
 @interface MUViewController() <MUProfileViewControllerDelegate>
 @property (nonatomic, strong) MUOAuth2Credential *credential;
