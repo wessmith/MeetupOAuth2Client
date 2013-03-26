@@ -75,6 +75,25 @@ MUOAuth2Client *client = [MUOAuth2Client sharedClient];
 ### Using the credential
 Once you have obtained a valid `MUOAuth2Credential` object, you can use it's `accessToken` property to append to your requests to the Meetup.com API: `credential.accessToken`.
 
+### Using the MUAPIRequest class
+The MUAPIRequest class provides a convenient way to access Meetup API endpoints, and parse JSON response bodies. For example:
+
+``` objective-c
+- (void)accessMemberSelf
+{
+    MUOAuth2Credential* credential = [[MUOAuth2Client sharedClient] credentialWithClientID:@"oauth-consumer-key"];
+    [MUAPIRequest getRequestWithURL:@"https://api.meetup.com/2/member/self.json"
+                         parameters:@{}
+                      andCredential:credential
+                         completion:^(MUAPIRequest *request) {
+                             NSLog(@"Response = %@", request.response); // response object
+                             NSLog(@"Error = %@", request.error); // set if there was an error
+                             NSLog(@"JSON = %@", request.responseBody); // JSON Decoded to NSDictionary
+                         }];
+  
+}
+```
+
 ##Requirements
 MUOAuth2Client requires iOS 5.0 or higher and uses ARC.
 
