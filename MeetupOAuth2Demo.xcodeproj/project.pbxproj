@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C97F889E1701D79300F36268 /* MUAPIRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = C97F889C1701D79300F36268 /* MUAPIRequest.h */; };
+		C97F889F1701D79300F36268 /* MUAPIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C97F889D1701D79300F36268 /* MUAPIRequest.m */; };
 		DE1A8A29160E64C40046B8FD /* MUOAuth2Client.h in Headers */ = {isa = PBXBuildFile; fileRef = DE3019C5160B78250099C255 /* MUOAuth2Client.h */; settings = {ATTRIBUTES = (); }; };
 		DE3019A8160B77FE0099C255 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3019A7160B77FE0099C255 /* UIKit.framework */; };
 		DE3019AA160B77FE0099C255 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3019A9160B77FE0099C255 /* Foundation.framework */; };
@@ -44,6 +46,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C97F889C1701D79300F36268 /* MUAPIRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUAPIRequest.h; sourceTree = "<group>"; };
+		C97F889D1701D79300F36268 /* MUAPIRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUAPIRequest.m; sourceTree = "<group>"; };
 		DE3019A3160B77FE0099C255 /* MeetupOAuth2Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetupOAuth2Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE3019A7160B77FE0099C255 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DE3019A9160B77FE0099C255 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -162,6 +166,8 @@
 		DE3019C4160B78110099C255 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C97F889C1701D79300F36268 /* MUAPIRequest.h */,
+				C97F889D1701D79300F36268 /* MUAPIRequest.m */,
 				DE3019C5160B78250099C255 /* MUOAuth2Client.h */,
 				DE3019C6160B78250099C255 /* MUOAuth2Client.m */,
 				DE3019C7160B78250099C255 /* MUOAuth2LoginView.h */,
@@ -211,6 +217,7 @@
 			files = (
 				DE1A8A29160E64C40046B8FD /* MUOAuth2Client.h in Headers */,
 				DE390226160FA4F400B5271D /* NSString+Query.h in Headers */,
+				C97F889E1701D79300F36268 /* MUAPIRequest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +343,7 @@
 				DE301A20160BF27E0099C255 /* MUOAuth2Client.m in Sources */,
 				DE301A21160BF27E0099C255 /* MUOAuth2LoginView.m in Sources */,
 				DE301A23160BF27E0099C255 /* NSString+Query.m in Sources */,
+				C97F889F1701D79300F36268 /* MUAPIRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
