@@ -27,14 +27,12 @@
 {
     NSMutableString *query = [NSMutableString string];
     NSArray *keys = [params allKeys];
-    NSArray *values = [params allValues];
     [keys enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        
-        if (idx == keys.count - 1)
-            [query appendFormat:@"%@=%@", obj, [values objectAtIndex:idx]];
-        else
-            [query appendFormat:@"%@=%@&", obj, [values objectAtIndex:idx]];
-        
+        NSString* key = (NSString*)obj;
+        NSString* value = params[key];
+        key = [key stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        value = [value stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        [query appendFormat:@"%@%@=%@", (idx > 0) ? @"&" : @"", key, value];
     }];
     return [query copy];
 }
@@ -45,8 +43,8 @@
     NSMutableDictionary *paramsDict = [NSMutableDictionary dictionaryWithCapacity:params.count];
     for (NSString *param in params) {
         NSArray *parts = [param componentsSeparatedByString:@"="];
-        NSString *key = [parts objectAtIndex:0];
-        NSString *value = [parts objectAtIndex:1];
+        NSString *key = [[parts objectAtIndex:0] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString *value = [[parts objectAtIndex:1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         [paramsDict setObject:value forKey:key];
     }
     return [paramsDict copy];
