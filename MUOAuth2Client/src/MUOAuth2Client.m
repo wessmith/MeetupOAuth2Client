@@ -37,27 +37,29 @@ NSString *CredentialSavePath(NSString *clientID) {
 }
 
 @interface MUOAuth2Credential() <NSCoding>
+
 @property (copy, nonatomic) NSString *clientID;
 @property (copy, nonatomic) NSString *clientSecret;
 @property (copy, nonatomic, readwrite) NSString *accessToken;
 @property (copy, nonatomic) NSString *refreshToken;
 @property (strong, nonatomic) NSDate *expiry;
+
 @end
 
 @interface MUOAuth2Client() <MUOAuth2LoginViewDelegate>
+
 @property (nonatomic, strong) MUOAuth2Credential *credential;
 @property (nonatomic, copy) NSString *redirectURI;
 @property (nonatomic, strong) MUOAuth2LoginView *loginView;
 @property (nonatomic, strong) SuccessBlock successBlock;
 @property (nonatomic, strong) FailureBlock failureBlock;
+
 @end
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
+
 @implementation MUOAuth2Client
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
+
 + (MUOAuth2Client *)sharedClient
 {
     static MUOAuth2Client *_sharedClient = nil;
@@ -69,14 +71,12 @@ NSString *CredentialSavePath(NSString *clientID) {
     return _sharedClient;
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
 - (MUOAuth2Credential *)credentialWithClientID:(NSString *)clientID
 {
     self.credential = [NSKeyedUnarchiver unarchiveObjectWithFile:CredentialSavePath(clientID)];
     return self.credential;
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)forgetCredentialWithClientID:(NSString *)clientID
 {
     NSFileManager *defaultManager = [NSFileManager defaultManager];
@@ -96,7 +96,6 @@ NSString *CredentialSavePath(NSString *clientID) {
     }
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)authorizeClientWithID:(NSString *)clientID
                        secret:(NSString *)secret
                   redirectURI:(NSString *)redirectURI
@@ -132,7 +131,6 @@ NSString *CredentialSavePath(NSString *clientID) {
     [self.loginView show];
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)refreshCredential:(MUOAuth2Credential *)credential
                   success:(void(^)(MUOAuth2Credential *credential))success
                   failure:(void(^)(NSError *error))failure;
@@ -160,11 +158,9 @@ NSString *CredentialSavePath(NSString *clientID) {
 }
 
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Connection Management -
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
+
 - (void)performRequestWithParameters:(NSDictionary *)params
                              success:(void (^)(MUOAuth2Credential *credential))success
                              failure:(void (^)(NSError *error))failure
@@ -230,7 +226,6 @@ NSString *CredentialSavePath(NSString *clientID) {
     
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)requestAccessTokenWithCode:(NSString *)authCode
 {
     NSDictionary *params = @{
@@ -259,11 +254,10 @@ NSString *CredentialSavePath(NSString *clientID) {
     }];
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
+
 #pragma mark - Login View Delegate
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
+
 - (void)loginView:(MUOAuth2LoginView *)sender didFailLoadWithError:(NSError *)error inWebView:(UIWebView *)webView;
 {
     // Stop loading if the scheme is same as redirect uri.
@@ -273,7 +267,6 @@ NSString *CredentialSavePath(NSString *clientID) {
     }
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
 - (BOOL)loginView:(MUOAuth2LoginView *)sender shouldStartLoadWithRequest:(NSURLRequest *)request
 {
     NSURL *redirectURL = [NSURL URLWithString:self.redirectURI];
@@ -302,19 +295,14 @@ NSString *CredentialSavePath(NSString *clientID) {
 @end
 
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
 @implementation MUOAuth2Credential
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
 - (BOOL)isExpired
 {
     return [self.expiry compare:[NSDate date]] == NSOrderedAscending;
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (NSString *)description {
+- (NSString *)debugDescription {
     return [NSString stringWithFormat:
             @"<%@"
             @" accessToken: \"%@\""
@@ -329,11 +317,10 @@ NSString *CredentialSavePath(NSString *clientID) {
             self.expiry];
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
+
 #pragma mark - NSCoder
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
+
 - (id)initWithCoder:(NSCoder *)decoder
 {
     self = [super init];
@@ -347,7 +334,6 @@ NSString *CredentialSavePath(NSString *clientID) {
     return self;
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)encodeWithCoder:(NSCoder *)encoder
 {
     [encoder encodeObject:self.clientID forKey:@"clientID"];

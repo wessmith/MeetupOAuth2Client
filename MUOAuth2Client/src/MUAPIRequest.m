@@ -24,18 +24,26 @@
 #import "MUOAuth2Client.h"
 
 @interface MUAPIRequest()
-@property (nonatomic,copy) void (^completion)(MUAPIRequest* request);
-@property (nonatomic,retain) NSURLRequest* request;
-@property (nonatomic,retain) NSURLResponse* response;
+{
+    NSMutableData* _mutableData;
+    NSURLRequest* _request;
+    NSURLResponse* _response;
+    NSError* _error;
+}
+
+@property (nonatomic,copy) void (^completion)(MUAPIRequest *request);
+@property (nonatomic,retain) NSURLRequest *request;
+@property (nonatomic,retain) NSURLResponse *response;
+
 @end
 
 @implementation MUAPIRequest
 
 
-+ (MUAPIRequest*)getRequestWithURL:(NSString*)baseURL
-                        parameters:(NSDictionary*)parameters
-                     andCredential:(MUOAuth2Credential*)credential
-                        completion:(void(^)(MUAPIRequest* request))completion;
++ (MUAPIRequest*)getRequestWithURL:(NSString *)baseURL
+                        parameters:(NSDictionary *)parameters
+                     andCredential:(MUOAuth2Credential *)credential
+                        completion:(void(^)(MUAPIRequest *request))completion;
 {
     NSString* token = credential.accessToken;
     NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@",
@@ -58,14 +66,14 @@
     return result;
 }
 
-+ (MUAPIRequest*)postRequestWithURL:(NSString*)baseURL
-                         parameters:(NSDictionary*)parameters
-                      andCredential:(MUOAuth2Credential*)credential
-                         completion:(void(^)(MUAPIRequest* request))completion;
++ (MUAPIRequest *)postRequestWithURL:(NSString *)baseURL
+                         parameters:(NSDictionary *)parameters
+                      andCredential:(MUOAuth2Credential *)credential
+                         completion:(void(^)(MUAPIRequest *request))completion;
 {
-    NSString* token = credential.accessToken;
-    NSURL* url = [NSURL URLWithString:baseURL];
-    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url
+    NSString *token = credential.accessToken;
+    NSURL *url = [NSURL URLWithString:baseURL];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
                                                            cachePolicy:NSURLCacheStorageAllowed
                                                        timeoutInterval:60.0];
     [request addValue:[NSString stringWithFormat:@"bearer %@", token]
@@ -75,7 +83,7 @@
     
     // TODO: This does not yet handle 'multipart/form-data' posts for photo uploads.
     request.HTTPBody = [[NSString queryStringWithDictionary:parameters] dataUsingEncoding:NSUTF8StringEncoding];
-    MUAPIRequest* result = [[MUAPIRequest alloc] init];
+    MUAPIRequest *result = [[MUAPIRequest alloc] init];
     result.request = request;
     result.completion = completion;
     
@@ -84,16 +92,16 @@
     return result;
 }
 
-+ (MUAPIRequest*)deleteRequestWithURL:(NSString*)baseURL
-                           parameters:(NSDictionary*)parameters
-                        andCredential:(MUOAuth2Credential*)credential
-                           completion:(void(^)(MUAPIRequest* request))completion;
++ (MUAPIRequest*)deleteRequestWithURL:(NSString *)baseURL
+                           parameters:(NSDictionary *)parameters
+                        andCredential:(MUOAuth2Credential *)credential
+                           completion:(void(^)(MUAPIRequest *request))completion;
 {
-    NSString* token = credential.accessToken;
-    NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@",
+    NSString *token = credential.accessToken;
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@",
                                        baseURL,
                                        parameters ? [NSString queryStringWithDictionary:parameters] : @""]];
-    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
                                                            cachePolicy:NSURLCacheStorageAllowed
                                                        timeoutInterval:60.0];
     [request addValue:[NSString stringWithFormat:@"bearer %@", token]
@@ -101,7 +109,7 @@
     [request addValue:@"utf-8" forHTTPHeaderField:@"Accept-Charset"];
     request.HTTPMethod = @"DELETE";
     
-    MUAPIRequest* result = [[MUAPIRequest alloc] init];
+    MUAPIRequest *result = [[MUAPIRequest alloc] init];
     result.request = request;
     result.completion = completion;
     
@@ -133,7 +141,6 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    //NSLog(@"did finish loading");
     if (_completion)
     {
         _completion(self);
@@ -143,7 +150,6 @@
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    //NSLog(@"did fail loading");
     if (_completion)
     {
         _completion(self);
@@ -153,17 +159,17 @@
 
 #pragma mark property accessors
 
-- (NSData*)data
+- (NSData *)data
 {
     return [_mutableData copy];
 }
 
-- (NSDictionary*)responseBody
+- (NSDictionary *)responseBody
 {
-    NSDictionary* result = nil;
+    NSDictionary *result = nil;
     if (_mutableData.length > 0)
     {
-        NSError* error;
+        NSError *error;
         result = (NSDictionary*) [NSJSONSerialization JSONObjectWithData:self.data
                                                                  options:0
                                                                    error:&error];

@@ -25,43 +25,36 @@
 
 @interface MUAPIRequest : NSObject <NSURLConnectionDataDelegate,NSURLConnectionDelegate>
 
-{
-    NSMutableData* _mutableData;
-    NSURLRequest* _request;
-    NSURLResponse* _response;
-    NSError* _error;
-}
+/// a copy of the request that was started
+@property (nonatomic, readonly) NSURLRequest *request;
 
-// a copy of the request that was started
-@property (nonatomic, readonly) NSURLRequest* request;
+/// set when the request is finished
+@property (nonatomic, readonly) NSURLResponse *response;
 
-// set when the request is finished
-@property (nonatomic, readonly) NSURLResponse* response;
+/// an immutable copy of the response data.
+@property (nonatomic, readonly) NSData *data;
 
-// an immutable copy of the response data.
-@property (nonatomic, readonly) NSData* data;
+/// set if the request failed, or JSON parsing failed.
+@property (nonatomic, readonly) NSError *error;
 
-// set if the request failed, or JSON parsing failed.
-@property (nonatomic, readonly) NSError* error;
+/// This dictionary is created by deserialising the JSON response data.
+@property (nonatomic, readonly) NSDictionary *responseBody;
 
-// This dictionary is created by deserialising the JSON response data.
-@property (nonatomic, readonly) NSDictionary* responseBody;
-
-+ (MUAPIRequest*)getRequestWithURL:(NSString*)baseURL
-                        parameters:(NSDictionary*)parameters
-                     andCredential:(MUOAuth2Credential*)credential
-                        completion:(void(^)(MUAPIRequest* request))completion;
++ (MUAPIRequest*)getRequestWithURL:(NSString *)baseURL
+                        parameters:(NSDictionary *)parameters
+                     andCredential:(MUOAuth2Credential *)credential
+                        completion:(void(^)(MUAPIRequest *request))completion;
 
 
-+ (MUAPIRequest*)postRequestWithURL:(NSString*)baseURL
-                         parameters:(NSDictionary*)parameters
-                      andCredential:(MUOAuth2Credential*)credential
-                         completion:(void(^)(MUAPIRequest* request))completion;
++ (MUAPIRequest*)postRequestWithURL:(NSString *)baseURL
+                         parameters:(NSDictionary *)parameters
+                      andCredential:(MUOAuth2Credential *)credential
+                         completion:(void(^)(MUAPIRequest *request))completion;
 
 
-+ (MUAPIRequest*)deleteRequestWithURL:(NSString*)baseURL
-                           parameters:(NSDictionary*)parameters
-                        andCredential:(MUOAuth2Credential*)credential
-                           completion:(void(^)(MUAPIRequest* request))completion;
++ (MUAPIRequest*)deleteRequestWithURL:(NSString *)baseURL
+                           parameters:(NSDictionary *)parameters
+                        andCredential:(MUOAuth2Credential *)credential
+                           completion:(void(^)(MUAPIRequest *request))completion;
 
 @end
