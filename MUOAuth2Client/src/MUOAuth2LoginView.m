@@ -235,6 +235,18 @@ const NSTimeInterval kBounceAnimationDuration = 0.15;
     }];
 }
 
+- (void)cleanupLoginView
+{
+    NSString *scriptPath = [[NSBundle mainBundle] pathForResource:@"MULoginPageCleanup" ofType:@"js"];
+    NSString *loginCleanupScript = [NSString stringWithContentsOfFile:scriptPath
+                                                             encoding:NSUTF8StringEncoding
+                                                                error:nil];
+    NSString *javascript = [NSString stringWithFormat:
+                            @"document.body.style.width='%dpx';",
+                            (NSInteger)self.webView.bounds.size.width];
+    javascript = [javascript stringByAppendingString:loginCleanupScript];
+    [self.webView stringByEvaluatingJavaScriptFromString:javascript];
+}
 
 #pragma mark - Web View Delegate -
 
@@ -252,13 +264,8 @@ const NSTimeInterval kBounceAnimationDuration = 0.15;
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {    
     [self.activityView stopAnimating];
-    
-    // Adjust the width of the webview content to fit nicely in the slightly smaller frame.
-    NSString *javascript = [NSString stringWithFormat:
-                                @"document.body.style.width='%dpx'",
-                                (NSInteger)self.webView.bounds.size.width];
-    
-    [self.webView stringByEvaluatingJavaScriptFromString:javascript];
+
+    [self cleanupLoginView];
     
     // Add the webView.
     [self insertSubview:webView belowSubview:self.closeButton];
