@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C97F889E1701D79300F36268 /* MUAPIRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = C97F889C1701D79300F36268 /* MUAPIRequest.h */; };
-		C97F889F1701D79300F36268 /* MUAPIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C97F889D1701D79300F36268 /* MUAPIRequest.m */; };
-		DE1A8A29160E64C40046B8FD /* MUOAuth2Client.h in Headers */ = {isa = PBXBuildFile; fileRef = DE3019C5160B78250099C255 /* MUOAuth2Client.h */; settings = {ATTRIBUTES = (); }; };
 		DE3019A8160B77FE0099C255 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3019A7160B77FE0099C255 /* UIKit.framework */; };
 		DE3019AA160B77FE0099C255 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3019A9160B77FE0099C255 /* Foundation.framework */; };
 		DE3019AC160B77FE0099C255 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3019AB160B77FE0099C255 /* CoreGraphics.framework */; };
@@ -21,29 +18,13 @@
 		DE3019CD160B78250099C255 /* MUOAuth2Client.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3019C6160B78250099C255 /* MUOAuth2Client.m */; };
 		DE3019CE160B78250099C255 /* MUOAuth2LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3019C8160B78250099C255 /* MUOAuth2LoginView.m */; };
 		DE3019D0160B78250099C255 /* NSString+Query.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3019CC160B78250099C255 /* NSString+Query.m */; };
-		DE3019E9160BD5AE0099C255 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE3019A9160B77FE0099C255 /* Foundation.framework */; };
-		DE301A20160BF27E0099C255 /* MUOAuth2Client.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3019C6160B78250099C255 /* MUOAuth2Client.m */; };
-		DE301A21160BF27E0099C255 /* MUOAuth2LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3019C8160B78250099C255 /* MUOAuth2LoginView.m */; };
-		DE301A23160BF27E0099C255 /* NSString+Query.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3019CC160B78250099C255 /* NSString+Query.m */; };
-		DE390226160FA4F400B5271D /* NSString+Query.h in Headers */ = {isa = PBXBuildFile; fileRef = DE3019CB160B78250099C255 /* NSString+Query.h */; settings = {ATTRIBUTES = (); }; };
 		DE6ED402160C0D17009DB9EA /* MUProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6ED401160C0D17009DB9EA /* MUProfileViewController.m */; };
+		DEA8176A1894849400DA45DB /* MUAPIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C97F889D1701D79300F36268 /* MUAPIRequest.m */; };
 		DEB7AE52160FE493009961A3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DEB7AE4E160FE493009961A3 /* Default-568h@2x.png */; };
 		DEB7AE53160FE493009961A3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DEB7AE4F160FE493009961A3 /* Default.png */; };
 		DEB7AE54160FE493009961A3 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DEB7AE50160FE493009961A3 /* Default@2x.png */; };
 		DEB7AE55160FE493009961A3 /* MeetupProfileImagePlaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = DEB7AE51160FE493009961A3 /* MeetupProfileImagePlaceholder.png */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		DE3019E6160BD5AE0099C255 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "include/${PRODUCT_NAME}";
-			dstSubfolderSpec = 16;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C97F889C1701D79300F36268 /* MUAPIRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUAPIRequest.h; sourceTree = "<group>"; };
@@ -67,7 +48,6 @@
 		DE3019C8160B78250099C255 /* MUOAuth2LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUOAuth2LoginView.m; sourceTree = "<group>"; };
 		DE3019CB160B78250099C255 /* NSString+Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Query.h"; sourceTree = "<group>"; };
 		DE3019CC160B78250099C255 /* NSString+Query.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Query.m"; sourceTree = "<group>"; };
-		DE3019E8160BD5AE0099C255 /* libMUOAuth2Client.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMUOAuth2Client.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE3019F7160BD5AF0099C255 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		DE6ED400160C0D17009DB9EA /* MUProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUProfileViewController.h; sourceTree = "<group>"; };
 		DE6ED401160C0D17009DB9EA /* MUProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUProfileViewController.m; sourceTree = "<group>"; };
@@ -85,14 +65,6 @@
 				DE3019A8160B77FE0099C255 /* UIKit.framework in Frameworks */,
 				DE3019AA160B77FE0099C255 /* Foundation.framework in Frameworks */,
 				DE3019AC160B77FE0099C255 /* CoreGraphics.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DE3019E5160BD5AE0099C255 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DE3019E9160BD5AE0099C255 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,7 +95,6 @@
 			isa = PBXGroup;
 			children = (
 				DE3019A3160B77FE0099C255 /* MeetupOAuth2Demo.app */,
-				DE3019E8160BD5AE0099C255 /* libMUOAuth2Client.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -210,19 +181,6 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		DE1A8A28160E64B90046B8FD /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DE1A8A29160E64C40046B8FD /* MUOAuth2Client.h in Headers */,
-				DE390226160FA4F400B5271D /* NSString+Query.h in Headers */,
-				C97F889E1701D79300F36268 /* MUAPIRequest.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
 		DE3019A2160B77FE0099C255 /* MeetupOAuth2Demo */ = {
 			isa = PBXNativeTarget;
@@ -240,25 +198,6 @@
 			productName = MeetupOAuth2Client;
 			productReference = DE3019A3160B77FE0099C255 /* MeetupOAuth2Demo.app */;
 			productType = "com.apple.product-type.application";
-		};
-		DE3019E7160BD5AE0099C255 /* MUOAuth2Client */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DE301A0B160BD5AF0099C255 /* Build configuration list for PBXNativeTarget "MUOAuth2Client" */;
-			buildPhases = (
-				DE3019E4160BD5AE0099C255 /* Sources */,
-				DE3019E5160BD5AE0099C255 /* Frameworks */,
-				DE3019E6160BD5AE0099C255 /* CopyFiles */,
-				DE1A8A28160E64B90046B8FD /* Headers */,
-				DE1A8A26160E648B0046B8FD /* Show TODOs */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = MUOAuth2Client;
-			productName = MUOAuth2Client;
-			productReference = DE3019E8160BD5AE0099C255 /* libMUOAuth2Client.a */;
-			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
@@ -283,7 +222,6 @@
 			projectRoot = "";
 			targets = (
 				DE3019A2160B77FE0099C255 /* MeetupOAuth2Demo */,
-				DE3019E7160BD5AE0099C255 /* MUOAuth2Client */,
 			);
 		};
 /* End PBXProject section */
@@ -304,23 +242,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		DE1A8A26160E648B0046B8FD /* Show TODOs */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Show TODOs";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "KEYWORDS=\"TODO:|FIXME:|\\?\\?\\?:|\\!\\!\\!:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | perl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		DE30199F160B77FE0099C255 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -332,18 +253,8 @@
 				DE3019CD160B78250099C255 /* MUOAuth2Client.m in Sources */,
 				DE3019CE160B78250099C255 /* MUOAuth2LoginView.m in Sources */,
 				DE3019D0160B78250099C255 /* NSString+Query.m in Sources */,
+				DEA8176A1894849400DA45DB /* MUAPIRequest.m in Sources */,
 				DE6ED402160C0D17009DB9EA /* MUProfileViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DE3019E4160BD5AE0099C255 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DE301A20160BF27E0099C255 /* MUOAuth2Client.m in Sources */,
-				DE301A21160BF27E0099C255 /* MUOAuth2LoginView.m in Sources */,
-				DE301A23160BF27E0099C255 /* NSString+Query.m in Sources */,
-				C97F889F1701D79300F36268 /* MUAPIRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,40 +357,6 @@
 			};
 			name = Release;
 		};
-		DE301A07160BD5AF0099C255 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DSTROOT = /tmp/MUOAuth2Client.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MUOAuth2Client/MUOAuth2Client-Prefix.pch";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		DE301A08160BD5AF0099C255 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				DSTROOT = /tmp/MUOAuth2Client.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MUOAuth2Client/MUOAuth2Client-Prefix.pch";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -497,15 +374,6 @@
 			buildConfigurations = (
 				DE3019C2160B77FE0099C255 /* Debug */,
 				DE3019C3160B77FE0099C255 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DE301A0B160BD5AF0099C255 /* Build configuration list for PBXNativeTarget "MUOAuth2Client" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DE301A07160BD5AF0099C255 /* Debug */,
-				DE301A08160BD5AF0099C255 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
