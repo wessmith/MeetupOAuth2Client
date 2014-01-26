@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.source_files = 'Classes', 'MUOAuth2Client/src/*.{h,m}'
   s.public_header_files = 'MUOAuth2Client/src/MU*.h'
+  s.resource_bundle = { 'MeetupOAuth2Client' => 'MUOAuth2Client/src/*.js' }
 end
